@@ -1,2 +1,2 @@
 # case_studies
-Portfolio of data analytics case studies using SQL, Python, Power BI, Tableau, R
+Data analytics case study for Bellabeat using SQL and Tableau

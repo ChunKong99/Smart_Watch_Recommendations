@@ -1,2 +1,2 @@
-# case_studies
-Data analytics case study for Bellabeat using SQL and Tableau
+# Bellabeat
+Smart device usage trends and marketing insights for Bellabeat marketing team

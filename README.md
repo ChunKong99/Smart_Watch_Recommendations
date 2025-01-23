@@ -67,3 +67,7 @@ Xx rows are in the dataset, hence, SQL is chosen to do data cleaning and analysi
 2)	Data cleansing
 3)	Transform the data into the right type
 
+Analyze Phase
+1)	Organize / format the data
+2)	Discover trends or relationships within the data
+

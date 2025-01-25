@@ -76,3 +76,9 @@ Share Phase
 2)	Summarize findings
 3)	Determine correct data visualization
 Xx elements are introduced to the stakeholders, hence, Tableau is chosen for data viz
+
+Act Phase
+1)	Provide final conclusions
+2)	Provide recommendations on how to act based on conclusions
+3)	Explain reasons
+4)	Determine if more data can provide more insights

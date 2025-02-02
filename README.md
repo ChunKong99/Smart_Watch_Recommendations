@@ -63,7 +63,7 @@ b)	At 143mil total users, dataset of 30 total users, and 85% confidence level, t
 
 Process Phase
 1)	Determine what tools to use
-Xx rows are in the dataset, hence, SQL is chosen to do data cleaning and analysis
+**Xx** rows are in the dataset, hence, SQL is chosen to do data cleaning and analysis
 2)	Data cleansing
 3)	Transform the data into the right type
 
@@ -75,7 +75,7 @@ Share Phase
 1)	Check whether the findings relate to the objectives or problems to be solved
 2)	Summarize findings
 3)	Determine correct data visualization
-Xx elements are introduced to the stakeholders, hence, Tableau is chosen for data viz
+**Xx** elements are introduced to the stakeholders, hence, Tableau is chosen for data viz
 
 Act Phase
 1)	Provide final conclusions

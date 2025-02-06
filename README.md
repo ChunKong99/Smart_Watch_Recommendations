@@ -67,7 +67,7 @@ b)	At 143mil total users, dataset of 30 total users, and 85% confidence level, t
 2)	Data cleansing
 3)	Transform the data into the right type
 
-Analyze Phase
+## Analyze Phase
 1)	Organize / format the data
 2)	Discover trends or relationships within the data
 

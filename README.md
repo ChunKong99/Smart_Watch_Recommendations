@@ -52,7 +52,7 @@ d)	A summary of the analysis
 e)	Supporting visualizations and key findings
 f)	Top high-level content recommendations based on the analysis
 
-## Prepare Phase
+# Prepare Phase
 1)	Identify available data
 FitBit Fitness Tracker Data
 2)	Identify location of the data

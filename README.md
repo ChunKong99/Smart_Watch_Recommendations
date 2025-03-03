@@ -2,7 +2,7 @@
 Marketing insights for Bellabeat
 
 
-# Ask Phase
+## Ask Phase
 1)	Identify the scenario
 a)	Analyze one of the smart device usage data (Leaf smart tracker, Time smart watch, Spring smart water bottle, Bellabeat membership, and Bellabeat app) to gain insight into how consumers use it to marketing team
 b)	Current advertising channels include

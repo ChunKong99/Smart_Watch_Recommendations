@@ -61,7 +61,7 @@ Kaggle: www.kaggle.com/datasets/arashnic/fitbit
 a)	The Kaggle dataset has limitations and adding another dataset can help address these limitations
 b)	At 143mil total users, dataset of 30 total users, and 85% confidence level, the margin of error is 14%, which is very high
 
-# Process Phase
+## Process Phase
 1)	Determine what tools to use
 **Xx** rows are in the dataset, hence, SQL is chosen to do data cleaning and analysis
 2)	Data cleansing

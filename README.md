@@ -71,7 +71,7 @@ b)	At 143mil total users, dataset of 30 total users, and 85% confidence level, t
 1)	Organize / format the data
 2)	Discover trends or relationships within the data
 
-# Share Phase
+## Share Phase
 1)	Check whether the findings relate to the objectives or problems to be solved
 2)	Summarize findings
 3)	Determine correct data visualization

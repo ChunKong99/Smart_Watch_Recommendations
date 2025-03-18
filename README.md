@@ -75,6 +75,7 @@ d) **Git & Github**: version control and hosting my files and findings for publi
 3)	Transform the data into the right type
 
 ## Analyze Phase
+Each query aims at investigating specific aspects of the relationship between metrics and other variables that provides guidance towards choosing the appropriate marketing channel(s).
 1)	Organize / format the data
 2)	Discover trends or relationships within the data
 

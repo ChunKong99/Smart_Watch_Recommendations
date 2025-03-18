@@ -81,8 +81,15 @@ Each query aims at investigating specific aspects of the relationship between me
 
 ## Share Phase
 1)	Check whether the findings relate to the objectives or problems to be solved
-2)	Summarize findings
-3)	Determine correct data visualization
+
+2)	Conclusions
+
+3) Conclusions to the top recommended marketing channels:
+a) **
+b) **
+c) **
+
+4)	Determine correct data visualization
 **Xx** elements are introduced to the stakeholders, hence, Tableau is chosen for data viz
 
 ## Act Phase

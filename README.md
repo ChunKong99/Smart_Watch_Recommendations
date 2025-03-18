@@ -56,7 +56,7 @@ f)	Top high-level content recommendations based on the analysis
 1)	Identify available data
 FitBit Fitness Tracker Data
 2)	Identify location of the data
-Kaggle: www.kaggle.com/datasets/arashnic/fitbit
+Kaggle: www.kaggle.com/datasets/arashnic/fitbit or [Bellabeat](/bellabeat)
 3)	Check if there is any problem with the data, especially integrity, bias, and credibility
 a)	The Kaggle dataset has limitations and adding another dataset can help address these limitations
 b)	At 143mil total users, dataset of 30 total users, and 85% confidence level, the margin of error is 14%, which is very high

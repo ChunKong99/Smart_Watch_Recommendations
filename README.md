@@ -1,4 +1,4 @@
-## Bellabeat
+# Bellabeat
 Marketing insights for Bellabeat
 
 

@@ -60,6 +60,13 @@ Kaggle: www.kaggle.com/datasets/arashnic/fitbit or [Dataset folder](/dataset)
 3)	Check if there is any problem with the data, especially integrity, bias, and credibility
 a)	The Kaggle dataset has limitations and adding another dataset can help address these limitations
 b)	At 143mil total users, dataset of 30 total users, and 85% confidence level, the margin of error is 14%, which is very high
+4) Identify tools to be used:
+a) **SQL**: for data cleansing, querying, and analysis, providing critical insights.
+b) **PostgreSQL**: the database management system.
+c) **Tableau**: tool for exploratory data analysis (EDA) and to produce visualizations.
+d) Visual Studio Code: code editor to execute SQL queries.
+d) **Git & Github**: version control and hosting my files and findings for public access.
+
 
 ## Process Phase
 1)	Determine what tools to use

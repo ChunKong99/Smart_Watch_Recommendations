@@ -3,18 +3,18 @@
 a) Bellabeat's Co-founder & Chief Creative Officer, Urška Sršen has asked to analyze publicly available data collected by competitor's Fitbit smart devices
 
 b) Current advertising channels include
- a.	traditional advertisement channels
-  i.	radio
-  ii.	out-of-home billboards
-  iii.	print
-  iv.	television
- b.	digital marketing channels
-  i.	Google search
-  ii.	Facebook
-  iii.	Instagram
-  iv.	X (formerly Twitter)
-  v.	Youtube
-  vi.	Google Display Network
+ i)	Traditional advertisement channels
+  1)	Radio
+  2)	Out-of-home billboards
+  3)	Print
+  4)	Television
+ ii)	Digital marketing channels
+  1)	Google search
+  2)	Facebook
+  3)	Instagram
+  4)	X (formerly Twitter)
+  5)	Youtube
+  6)	Google Display Network
 
 2)	Objectives or problems to be solved
 a)	Analyze Fitbit's smart devices usage data to gain insight into how consumers use these products
@@ -29,9 +29,10 @@ b)	Sando Mur, Co-founder of Bellabeat and key member of the Bellabeat executive 
 # Preparations
 1)	Identify publicly available data: FitBit Fitness Tracker Data
 2)	Identify location of data: www.kaggle.com/datasets/arashnic/fitbit or [Dataset folder](/dataset)
-3)	Check if there is any problem with the data, especially integrity, bias, and credibility
-a)	The Kaggle dataset has limitations and adding another dataset can help address these limitations
-b)	At 143mil total users, dataset of 30 total users, and 85% confidence level, the margin of error is 14%, which is very high
+3)	Integrity, bias, and credibility
+a) Licensed under CCO: Public Domain license
+b) Data integrity is questionable due to storage done on a publicly accessible server via user "Mobius"
+c)	At 143mil total users, dataset of 30 total users, and 85% confidence level, the margin of error is 14%, which is carries significant risk
 
 # Process Phase
 1) **Xx** rows are in the dataset, hence, SQL is chosen to do data cleaning and analysis
@@ -44,8 +45,11 @@ d) **Tableau**: tool for exploratory data analysis (EDA) and to produce visualiz
 e) **Git & Github**: version control and hosting my files and findings for public access.
 
 3)	Data cleansing
+a) Data is determined to be ready for data cleansing with checks on Null values, data type compatibilities, and appropriate column names
+b) Data cleansing performed:
+ i)
 
-4)	Transform the data into the right type
+5)	Transform the data into the right type
 
 # Analyze Phase
 Each query aims at investigating specific aspects of the relationship between metrics and other variables that provides guidance towards choosing the appropriate marketing channel(s).

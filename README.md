@@ -17,23 +17,14 @@ b) Current advertising channels include
   vi.	Google Display Network
 
 2)	Objectives or problems to be solved
-a)	Analyze one of Fitbit's smart devices usage data to gain insight into how consumers use these products
+a)	Analyze Fitbit's smart devices usage data to gain insight into how consumers use these products
 b)	High level recommendations for how these trends can guide marketing strategy
 
 3)	Identify the stakeholders
 a)	Urška Sršen, Co-founder of Bellabeat, Chief Creative Officer
 b)	Sando Mur, Co-founder of Bellabeat and key member of the Bellabeat executive team
-c)	Marketing team
 
 4)	Outline a solution that would alleviate the problem and have a few alternatives in mind to show that you have given the case study considerable thought
-
-5)	Expected deliverables and expected timeline
-a)	A clear summary of the business task
-b)	A description of all data sources used
-c)	Documentation of any cleaning or manipulation of data
-d)	A summary of the analysis
-e)	Supporting visualizations and key findings
-f)	Top high-level content recommendations based on the analysis
 
 # Preparations
 1)	Identify publicly available data: FitBit Fitness Tracker Data
@@ -42,18 +33,19 @@ f)	Top high-level content recommendations based on the analysis
 a)	The Kaggle dataset has limitations and adding another dataset can help address these limitations
 b)	At 143mil total users, dataset of 30 total users, and 85% confidence level, the margin of error is 14%, which is very high
 
-4) Identify tools to be used:
+# Process Phase
+1) **Xx** rows are in the dataset, hence, SQL is chosen to do data cleaning and analysis
+
+2) Technologies used:
 a) **SQL**: for data cleansing, querying, and analysis, providing critical insights.
 b) **PostgreSQL**: the database management system.
-c) **Tableau**: tool for exploratory data analysis (EDA) and to produce visualizations.
-d) Visual Studio Code: code editor to execute SQL queries.
+c) **Visual Studio Code**: code editor to execute SQL queries.
+d) **Tableau**: tool for exploratory data analysis (EDA) and to produce visualizations.
 e) **Git & Github**: version control and hosting my files and findings for public access.
 
-# Process Phase
-1)	Determine what tools to use
-**Xx** rows are in the dataset, hence, SQL is chosen to do data cleaning and analysis
-2)	Data cleansing
-3)	Transform the data into the right type
+3)	Data cleansing
+
+4)	Transform the data into the right type
 
 # Analyze Phase
 Each query aims at investigating specific aspects of the relationship between metrics and other variables that provides guidance towards choosing the appropriate marketing channel(s).
@@ -99,3 +91,11 @@ c) **
 3)	Explain reasons
 4)	Determine if more data can provide more insights
 5)	Closing thoughts
+
+Expected deliverables and expected timeline
+a)	A clear summary of the business task
+b)	A description of all data sources used
+c)	Documentation of any cleaning or manipulation of data
+d)	A summary of the analysis
+e)	Supporting visualizations and key findings
+f)	Top high-level content recommendations based on the analysis

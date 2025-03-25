@@ -28,7 +28,7 @@ b)	Sando Mur, Co-founder of Bellabeat and key member of the Bellabeat executive 
 
 # Preparations
 1)	Identify publicly available data: FitBit Fitness Tracker Data
-2)	Identify location of data: www.kaggle.com/datasets/arashnic/fitbit or [Dataset folder](/dataset)
+2)	Identify location of data: www.kaggle.com/datasets/arashnic/fitbit or [Dataset folder](bellabeat/dataset)
 3)	Integrity, bias, and credibility
 a) Licensed under CCO: Public Domain license
 b) Data integrity is questionable due to storage done on a publicly accessible server via user "Mobius"

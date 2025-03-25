@@ -1,4 +1,4 @@
-# Introduction and Objectives
+## Introduction and Objectives
 1)	Scenario:
 a) Bellabeat's Co-founder & Chief Creative Officer, Urška Sršen has asked to analyze publicly available data collected by competitor's Fitbit smart devices
 

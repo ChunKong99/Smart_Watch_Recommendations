@@ -34,7 +34,7 @@ a) Licensed under CCO: Public Domain license
 b) Data integrity is questionable due to storage done on a publicly accessible server via user "Mobius"
 c)	At 143mil total users, dataset of 30 total users, and 85% confidence level, the margin of error is 14%, which is carries significant risk
 
-# Process Phase
+## Process Phase
 1) **Xx** rows are in the dataset, hence, SQL is chosen to do data cleaning and analysis
 
 2) Technologies used:

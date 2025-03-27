@@ -51,7 +51,7 @@ b) Data cleansing performed:
 
 5)	Transform the data into the right type
 
-# Analyze Phase
+## Analyze Phase
 Each query aims at investigating specific aspects of the relationship between metrics and other variables that provides guidance towards choosing the appropriate marketing channel(s).
 1)	Determine metrics to be used to measure the data to achieve the objectives
 a)	Best selling product

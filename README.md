@@ -76,7 +76,7 @@ c)	Higher paying demographics
 
 5)	Discover trends or relationships within the data
 
-# Share Phase
+## Share Phase
 1)	Check whether the findings relate to the objectives or problems to be solved
 
 2)	Conclusions

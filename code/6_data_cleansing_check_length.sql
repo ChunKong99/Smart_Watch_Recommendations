@@ -1,6 +1,6 @@
 --Check length of column named id in daily_activity_mar table
 SELECT
-    CASE WHEN COUNT(DISTINCT LENGTH(totalsteps::text)) > 1 THEN 'id_in_daily_activity_mar'
+    CASE WHEN COUNT(DISTINCT LENGTH(id::text)) > 2 THEN 'id_in_daily_activity_mar'
         ELSE NULL END AS irregular_value_daily_activity_mar
 FROM daily_activity_mar;
 

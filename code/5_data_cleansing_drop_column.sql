@@ -6,7 +6,7 @@ ALTER TABLE daily_activity_mar RENAME COLUMN loggedactivitiesdistance TO logged_
 ALTER TABLE daily_activity_mar RENAME COLUMN veryactivedistance TO very_active_distance;
 ALTER TABLE daily_activity_mar RENAME COLUMN moderatelyactivedistance TO moderately_active_distance;
 ALTER TABLE daily_activity_mar RENAME COLUMN lightactivedistance TO light_active_distance;
-ALTER TABLE daily_activity_mar RENAME COLUMN sedentaryativedistance TO sedentary_active_distance;
+ALTER TABLE daily_activity_mar RENAME COLUMN sedentaryactivedistance TO sedentary_active_distance;
 ALTER TABLE daily_activity_mar RENAME COLUMN veryactiveminutes TO very_active_minutes;
 ALTER TABLE daily_activity_mar RENAME COLUMN fairlyactiveminutes TO fairly_active_minutes;
 ALTER TABLE daily_activity_mar RENAME COLUMN lightlyactiveminutes TO lightly_active_minutes;

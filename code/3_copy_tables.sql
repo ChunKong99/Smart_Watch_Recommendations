@@ -58,18 +58,18 @@ COPY daily_activity_apr
 FROM 'G:\Project\Bellabeat-1\dataset\fitabase_data_apr\dailyActivity_merged.csv'
 WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
 
---Load dailyCalories_merged.csv data into daily_calories_apr table
-COPY daily_calories_apr
+--Load dailyCalories_merged.csv data into daily_calories table
+COPY daily_calories
 FROM 'G:\Project\Bellabeat-1\dataset\fitabase_data_apr\dailyCalories_merged.csv'
 WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
 
---Load dailyIntensities_merged.csv data into daily_intensities_apr table
-COPY daily_intensities_apr
+--Load dailyIntensities_merged.csv data into daily_intensities table
+COPY daily_intensities
 FROM 'G:\Project\Bellabeat-1\dataset\fitabase_data_apr\dailyIntensities_merged.csv'
 WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
 
---Load dailySteps_merged.csv data into daily_steps_apr table
-COPY daily_steps_apr
+--Load dailySteps_merged.csv data into daily_steps table
+COPY daily_steps
 FROM 'G:\Project\Bellabeat-1\dataset\fitabase_data_apr\dailySteps_merged.csv'
 WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
 
@@ -118,8 +118,8 @@ COPY minute_steps_apr
 FROM 'G:\Project\Bellabeat-1\dataset\fitabase_data_apr\minuteStepsNarrow_merged.csv'
 WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
 
---Load sleepDay_merged.csv data into sleep_day_apr table
-COPY sleep_day_apr
+--Load sleepDay_merged.csv data into sleep_day table
+COPY sleep_day
 FROM 'G:\Project\Bellabeat-1\dataset\fitabase_data_apr\sleepDay_merged.csv'
 WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
 

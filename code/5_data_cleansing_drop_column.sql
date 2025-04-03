@@ -17,7 +17,7 @@ ALTER TABLE hourly_intensities_mar RENAME COLUMN totalintensity TO total_intensi
 ALTER TABLE hourly_intensities_mar RENAME COLUMN averageintensity TO average_intensity;
 
 --Rename columns of hourly_steps_mar
-ALTER TABLE hourly_steps_mar RENAME COLUMN steptotal TO step_total;
+ALTER TABLE hourly_steps_mar RENAME COLUMN steptotal TO total_steps;
 
 --Rename columns of minute_sleep_mar
 ALTER TABLE minute_sleep_mar RENAME COLUMN logid TO log_id;
@@ -52,14 +52,14 @@ ALTER TABLE daily_intensities_apr RENAME COLUMN moderatelyactivedistance TO mode
 ALTER TABLE daily_intensities_apr RENAME COLUMN veryactivedistance TO very_active_distance;
 
 --Rename columns of daily_steps_apr
-ALTER TABLE daily_steps_apr RENAME COLUMN steptotal TO step_total;
+ALTER TABLE daily_steps_apr RENAME COLUMN steptotal TO total_steps;
 
 --Rename columns of hourly_intensities_apr
 ALTER TABLE hourly_intensities_apr RENAME COLUMN totalintensity TO total_intensity;
 ALTER TABLE hourly_intensities_apr RENAME COLUMN averageintensity TO average_intensity;
 
 --Rename columns of hourly_steps_apr
-ALTER TABLE hourly_steps_apr RENAME COLUMN steptotal TO step_total;
+ALTER TABLE hourly_steps_apr RENAME COLUMN steptotal TO total_steps;
 
 --Rename columns of minute_sleep_apr
 ALTER TABLE minute_sleep_apr RENAME COLUMN logid TO log_id;

@@ -84,24 +84,24 @@ SELECT
 FROM daily_activity_apr;
 
 
---Check length of columns named id, date, time, logid in daily_calories_apr table
+--Check length of columns named id, date, time, logid in daily_calories table
 SELECT
-    CASE WHEN COUNT(DISTINCT LENGTH(id::text)) > 1 THEN 'id_in_daily_calories_apr'
-        ELSE NULL END AS irregular_value_daily_calories_apr
-FROM daily_calories_apr;
+    CASE WHEN COUNT(DISTINCT LENGTH(id::text)) > 1 THEN 'id_in_daily_calories'
+        ELSE NULL END AS irregular_value_daily_calories
+FROM daily_calories;
 
 
---Check length of column named id in daily_intensities_apr table
+--Check length of column named id in daily_intensities table
 SELECT
-    CASE WHEN COUNT(DISTINCT LENGTH(id::text)) > 1 THEN 'id_in_daily_intensities_apr'
-        ELSE NULL END AS irregular_value_daily_intensities_apr
-FROM daily_intensities_apr;
+    CASE WHEN COUNT(DISTINCT LENGTH(id::text)) > 1 THEN 'id_in_daily_intensities'
+        ELSE NULL END AS irregular_value_daily_intensities
+FROM daily_intensities;
 
---Check length of column named id in daily_steps_apr table
+--Check length of column named id in daily_steps table
 SELECT
-    CASE WHEN COUNT(DISTINCT LENGTH(id::text)) > 1 THEN 'id_in_daily_steps_apr'
-        ELSE NULL END AS irregular_value_daily_steps_apr
-FROM daily_steps_apr;
+    CASE WHEN COUNT(DISTINCT LENGTH(id::text)) > 1 THEN 'id_in_daily_steps'
+        ELSE NULL END AS irregular_value_daily_steps
+FROM daily_steps;
 
 
 --Check length of column named id in heart_rate_seconds_apr table
@@ -169,11 +169,11 @@ SELECT
 FROM minute_steps_apr;
 
 
---Check length of column named id in sleep_day_apr table
+--Check length of column named id in sleep_day table
 SELECT
-    CASE WHEN COUNT(DISTINCT LENGTH(id::text)) > 1 THEN 'id_in_sleep_day_apr'
-        ELSE NULL END AS irregular_value_sleep_day_apr
-FROM sleep_day_apr;
+    CASE WHEN COUNT(DISTINCT LENGTH(id::text)) > 1 THEN 'id_in_sleep_day'
+        ELSE NULL END AS irregular_value_sleep_day
+FROM sleep_day;
 
 
 --Check length of columns named id, log_id in weight_log_info_apr table

@@ -42,18 +42,18 @@ WHERE id IS NULL
 DELETE FROM weight_log_info
 WHERE id IS NULL
 
---Remove nulls from daily_calories_apr table
-DELETE FROM daily_calories_apr
+--Remove nulls from daily_calories table
+DELETE FROM daily_calories
 WHERE id IS NULL
 
---Remove nulls from daily_intensities_apr table
-DELETE FROM daily_intensities_apr
+--Remove nulls from daily_intensities table
+DELETE FROM daily_intensities
 WHERE id IS NULL
 
---Remove nulls from daily_steps_apr table
-DELETE FROM daily_steps_apr
+--Remove nulls from daily_steps table
+DELETE FROM daily_steps
 WHERE id IS NULL
 
---Remove nulls from sleep_day_apr table
-DELETE FROM sleep_day_apr
+--Remove nulls from sleep_day table
+DELETE FROM sleep_day
 WHERE id IS NULL

@@ -41,18 +41,18 @@ ALTER TABLE daily_activity_apr RENAME COLUMN fairlyactiveminutes TO fairly_activ
 ALTER TABLE daily_activity_apr RENAME COLUMN lightlyactiveminutes TO lightly_active_minutes;
 ALTER TABLE daily_activity_apr RENAME COLUMN sedentaryminutes TO sedentary_minutes;
 
---Rename columns of daily_intensities_apr
-ALTER TABLE daily_intensities_apr RENAME COLUMN sedentaryminutes TO sedentary_minutes;
-ALTER TABLE daily_intensities_apr RENAME COLUMN lightlyativeminutes TO lightly_active_minutes;
-ALTER TABLE daily_intensities_apr RENAME COLUMN fairlyactiveminutes TO fairly_active_minutes;
-ALTER TABLE daily_intensities_apr RENAME COLUMN veryactiveminutes TO very_active_minutes;
-ALTER TABLE daily_intensities_apr RENAME COLUMN sedentaryactivedistance TO sedentary_active_distance;
-ALTER TABLE daily_intensities_apr RENAME COLUMN lightactivedistance TO light_active_distance;
-ALTER TABLE daily_intensities_apr RENAME COLUMN moderatelyactivedistance TO moderately_active_distance;
-ALTER TABLE daily_intensities_apr RENAME COLUMN veryactivedistance TO very_active_distance;
+--Rename columns of daily_intensities
+ALTER TABLE daily_intensities RENAME COLUMN sedentaryminutes TO sedentary_minutes;
+ALTER TABLE daily_intensities RENAME COLUMN lightlyativeminutes TO lightly_active_minutes;
+ALTER TABLE daily_intensities RENAME COLUMN fairlyactiveminutes TO fairly_active_minutes;
+ALTER TABLE daily_intensities RENAME COLUMN veryactiveminutes TO very_active_minutes;
+ALTER TABLE daily_intensities RENAME COLUMN sedentaryactivedistance TO sedentary_active_distance;
+ALTER TABLE daily_intensities RENAME COLUMN lightactivedistance TO light_active_distance;
+ALTER TABLE daily_intensities RENAME COLUMN moderatelyactivedistance TO moderately_active_distance;
+ALTER TABLE daily_intensities RENAME COLUMN veryactivedistance TO very_active_distance;
 
---Rename columns of daily_steps_apr
-ALTER TABLE daily_steps_apr RENAME COLUMN steptotal TO total_steps;
+--Rename columns of daily_steps
+ALTER TABLE daily_steps RENAME COLUMN steptotal TO total_steps;
 
 --Rename columns of hourly_intensities_apr
 ALTER TABLE hourly_intensities_apr RENAME COLUMN totalintensity TO total_intensity;
@@ -64,10 +64,10 @@ ALTER TABLE hourly_steps_apr RENAME COLUMN steptotal TO total_steps;
 --Rename columns of minute_sleep_apr
 ALTER TABLE minute_sleep_apr RENAME COLUMN logid TO log_id;
 
---Rename columns of sleep_day_apr
-ALTER TABLE sleep_day_apr RENAME COLUMN totalsleeprecords TO total_sleep_records;
-ALTER TABLE sleep_day_apr RENAME COLUMN totalminuteasleep TO total_minutes_asleep;
-ALTER TABLE sleep_day_apr RENAME COLUMN totaltimeinbed TO total_time_in_bed;
+--Rename columns of sleep_day
+ALTER TABLE sleep_day RENAME COLUMN totalsleeprecords TO total_sleep_records;
+ALTER TABLE sleep_day RENAME COLUMN totalminuteasleep TO total_minutes_asleep;
+ALTER TABLE sleep_day RENAME COLUMN totaltimeinbed TO total_time_in_bed;
 
 --Rename columns of weight_log_info_apr
 ALTER TABLE weight_log_info_apr RENAME COLUMN weightkg TO weight;

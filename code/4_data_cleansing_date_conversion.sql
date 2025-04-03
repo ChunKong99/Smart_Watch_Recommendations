@@ -205,46 +205,46 @@ ALTER TABLE daily_activity_apr DROP COLUMN activitydate;
 ALTER TABLE daily_activity_apr RENAME COLUMN cleaned_date to date;
 
 
---Add new column and convert date format from FMMM/FMDD/YYYY to YYYY/MM/DD in daily_calories_apr
-ALTER TABLE daily_calories_apr ADD COLUMN cleaned_date date;
-ALTER TABLE daily_calories_apr ADD COLUMN cleaned_time time;
+--Add new column and convert date format from FMMM/FMDD/YYYY to YYYY/MM/DD in daily_calories
+ALTER TABLE daily_calories ADD COLUMN cleaned_date date;
+ALTER TABLE daily_calories ADD COLUMN cleaned_time time;
 
-UPDATE daily_calories_apr
+UPDATE daily_calories
 SET cleaned_date = (EXTRACT(YEAR FROM TO_DATE(activityday, 'FMMM/FMDD/YYYY')) || '-' || EXTRACT(MONTH FROM TO_DATE(activityday, 'FMMM/FMDD/YYYY')) || '-' || EXTRACT(DAY FROM TO_DATE(activityday, 'FMMM/FMDD/YYYY')))::date;
 
---Remove unnecessary column in daily_calories_apr
-ALTER TABLE daily_calories_apr DROP COLUMN activityday;
+--Remove unnecessary column in daily_calories
+ALTER TABLE daily_calories DROP COLUMN activityday;
 
---Rename columns in daily_calories_apr
-ALTER TABLE daily_calories_apr RENAME COLUMN cleaned_date to date;
+--Rename columns in daily_calories
+ALTER TABLE daily_calories RENAME COLUMN cleaned_date to date;
 
 
---Add new column and convert date format from FMMM/FMDD/YYYY to YYYY/MM/DD in daily_intensities_apr
-ALTER TABLE daily_intensities_apr ADD COLUMN cleaned_date date;
-ALTER TABLE daily_intensities_apr ADD COLUMN cleaned_time time;
+--Add new column and convert date format from FMMM/FMDD/YYYY to YYYY/MM/DD in daily_intensities
+ALTER TABLE daily_intensities ADD COLUMN cleaned_date date;
+ALTER TABLE daily_intensities ADD COLUMN cleaned_time time;
 
-UPDATE daily_intensities_apr
+UPDATE daily_intensities
 SET cleaned_date = (EXTRACT(YEAR FROM TO_DATE(activityday, 'FMMM/FMDD/YYYY')) || '-' || EXTRACT(MONTH FROM TO_DATE(activityday, 'FMMM/FMDD/YYYY')) || '-' || EXTRACT(DAY FROM TO_DATE(activityday, 'FMMM/FMDD/YYYY')))::date;
 
---Remove unnecessary column in daily_intensities_apr
-ALTER TABLE daily_intensities_apr DROP COLUMN activityday;
+--Remove unnecessary column in daily_intensities
+ALTER TABLE daily_intensities DROP COLUMN activityday;
 
---Rename columns in daily_intensities_apr
-ALTER TABLE daily_intensities_apr RENAME COLUMN cleaned_date to date;
+--Rename columns in daily_intensities
+ALTER TABLE daily_intensities RENAME COLUMN cleaned_date to date;
 
 
---Add new column and convert date format from FMMM/FMDD/YYYY to YYYY/MM/DD in daily_steps_apr
-ALTER TABLE daily_steps_apr ADD COLUMN cleaned_date date;
-ALTER TABLE daily_steps_apr ADD COLUMN cleaned_time time;
+--Add new column and convert date format from FMMM/FMDD/YYYY to YYYY/MM/DD in daily_steps
+ALTER TABLE daily_steps ADD COLUMN cleaned_date date;
+ALTER TABLE daily_steps ADD COLUMN cleaned_time time;
 
-UPDATE daily_steps_apr
+UPDATE daily_steps
 SET cleaned_date = (EXTRACT(YEAR FROM TO_DATE(activityday, 'FMMM/FMDD/YYYY')) || '-' || EXTRACT(MONTH FROM TO_DATE(activityday, 'FMMM/FMDD/YYYY')) || '-' || EXTRACT(DAY FROM TO_DATE(activityday, 'FMMM/FMDD/YYYY')))::date;
 
---Remove unnecessary column in daily_steps_apr
-ALTER TABLE daily_steps_apr DROP COLUMN activityday;
+--Remove unnecessary column in daily_steps
+ALTER TABLE daily_steps DROP COLUMN activityday;
 
---Rename columns in daily_steps_apr
-ALTER TABLE daily_steps_apr RENAME COLUMN cleaned_date to date;
+--Rename columns in daily_steps
+ALTER TABLE daily_steps RENAME COLUMN cleaned_date to date;
 
 
 --Add new column and convert date and time format from FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM to YYYY/MM/DD and HH:MM:SS in heart_rate_seconds_apr
@@ -409,22 +409,22 @@ ALTER TABLE minute_steps_apr RENAME COLUMN cleaned_date to date;
 ALTER TABLE minute_steps_apr RENAME COLUMN cleaned_time to time;
 
 
---Add new column and convert date and time format from FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM to YYYY/MM/DD and HH:MM:SS in sleep_day_apr
-ALTER TABLE sleep_day_apr ADD COLUMN cleaned_date date;
-ALTER TABLE sleep_day_apr ADD COLUMN cleaned_time time;
+--Add new column and convert date and time format from FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM to YYYY/MM/DD and HH:MM:SS in sleep_day
+ALTER TABLE sleep_day ADD COLUMN cleaned_date date;
+ALTER TABLE sleep_day ADD COLUMN cleaned_time time;
 
-UPDATE sleep_day_apr
+UPDATE sleep_day
 SET cleaned_date = (EXTRACT(YEAR FROM TO_TIMESTAMP(sleepday, 'FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM')) || '-' || EXTRACT(MONTH FROM TO_TIMESTAMP(sleepday, 'FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM')) || '-' || EXTRACT(DAY FROM TO_TIMESTAMP(sleepday, 'FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM')))::date;
 
-UPDATE sleep_day_apr
+UPDATE sleep_day
 SET cleaned_time = (EXTRACT(HOUR FROM TO_TIMESTAMP(sleepday, 'FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM')) || ':' || EXTRACT(MINUTE FROM TO_TIMESTAMP(sleepday, 'FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM')) || ':' || EXTRACT(SECONDS FROM TO_TIMESTAMP(sleepday, 'FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM')))::time;
 
---Remove unnecessary column in sleep_day_apr
-ALTER TABLE sleep_day_apr DROP COLUMN sleepday;
+--Remove unnecessary column in sleep_day
+ALTER TABLE sleep_day DROP COLUMN sleepday;
 
---Rename columns in sleep_day_apr
-ALTER TABLE sleep_day_apr RENAME COLUMN cleaned_date to date;
-ALTER TABLE sleep_day_apr RENAME COLUMN cleaned_time to time;
+--Rename columns in sleep_day
+ALTER TABLE sleep_day RENAME COLUMN cleaned_date to date;
+ALTER TABLE sleep_day RENAME COLUMN cleaned_time to time;
 
 
 --Add new column and convert date and time format from FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM to YYYY/MM/DD and HH:MM:SS in weight_log_info_apr

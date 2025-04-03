@@ -125,16 +125,16 @@ CREATE TABLE daily_activity_apr
     Calories INT
 );
 
--- Create daily_calories_apr table
-CREATE TABLE daily_calories_apr
+-- Create daily_calories table
+CREATE TABLE daily_calories
 (
     Id BIGINT,
     ActivityDay VARCHAR,
     Calories INT
 );
 
--- Create daily_intensities_apr table
-CREATE TABLE daily_intensities_apr
+-- Create daily_intensities table
+CREATE TABLE daily_intensities
 (
     Id BIGINT,
     ActivityDay VARCHAR,
@@ -148,8 +148,8 @@ CREATE TABLE daily_intensities_apr
     VeryActiveDistance DECIMAL
 );
 
--- Create daily_steps_apr table
-CREATE TABLE daily_steps_apr
+-- Create daily_steps table
+CREATE TABLE daily_steps
 (
     Id BIGINT,
     ActivityDay VARCHAR,
@@ -230,8 +230,8 @@ CREATE TABLE minute_steps_apr
     Steps INT
 );
 
--- Create sleep_day_apr table
-CREATE TABLE sleep_day_apr
+-- Create sleep_day table
+CREATE TABLE sleep_day
 (
     Id BIGINT,
     SleepDay VARCHAR,

@@ -43,7 +43,7 @@ ALTER TABLE daily_activity_apr RENAME COLUMN sedentaryminutes TO sedentary_minut
 
 --Rename columns of daily_intensities
 ALTER TABLE daily_intensities RENAME COLUMN sedentaryminutes TO sedentary_minutes;
-ALTER TABLE daily_intensities RENAME COLUMN lightlyativeminutes TO lightly_active_minutes;
+ALTER TABLE daily_intensities RENAME COLUMN lightlyactiveminutes TO lightly_active_minutes;
 ALTER TABLE daily_intensities RENAME COLUMN fairlyactiveminutes TO fairly_active_minutes;
 ALTER TABLE daily_intensities RENAME COLUMN veryactiveminutes TO very_active_minutes;
 ALTER TABLE daily_intensities RENAME COLUMN sedentaryactivedistance TO sedentary_active_distance;
@@ -66,7 +66,7 @@ ALTER TABLE minute_sleep_apr RENAME COLUMN logid TO log_id;
 
 --Rename columns of sleep_day
 ALTER TABLE sleep_day RENAME COLUMN totalsleeprecords TO total_sleep_records;
-ALTER TABLE sleep_day RENAME COLUMN totalminuteasleep TO total_minutes_asleep;
+ALTER TABLE sleep_day RENAME COLUMN totalminutesasleep TO total_minutes_asleep;
 ALTER TABLE sleep_day RENAME COLUMN totaltimeinbed TO total_time_in_bed;
 
 --Rename columns of weight_log_info_apr

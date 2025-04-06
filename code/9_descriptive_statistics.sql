@@ -3,7 +3,7 @@ CREATE TABLE daily_activity_descriptive
 (
     "column" VARCHAR,
     unique_values VARCHAR,
-    count VARCHAR
+    count VARCHAR,
     mean VARCHAR,
     standard_deviation VARCHAR,
     min VARCHAR,
@@ -53,11 +53,11 @@ VALUES
     (SELECT COUNT(DISTINCT total_steps) FROM daily_activity),
     (SELECT COUNT(total_steps) FROM daily_activity),
     (SELECT ROUND(AVG(total_steps), 0) FROM daily_activity),
-    (SELECT ROUND(STDDEV(total_steps), 2) FROM daily_activity),
+    (SELECT ROUND(STDDEV(total_steps), 0) FROM daily_activity),
     (SELECT MIN(total_steps) FROM daily_activity),
-    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY total_steps), 2) FROM daily_activity),
-    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY total_steps), 2) FROM daily_activity),
-    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY total_steps), 2) FROM daily_activity),
+    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY total_steps), 0) FROM daily_activity),
+    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY total_steps), 0) FROM daily_activity),
+    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY total_steps), 0) FROM daily_activity),
     (SELECT MAX(total_steps) FROM daily_activity)
 );
 
@@ -100,13 +100,13 @@ VALUES
     'logged_activities_distance',
     (SELECT COUNT(DISTINCT logged_activities_distance) FROM daily_activity),
     (SELECT COUNT(logged_activities_distance) FROM daily_activity),
-    (SELECT ROUND(AVG(logged_activities_distance), 0) FROM daily_activity),
-    (SELECT STDDEV(logged_activities_distance) FROM daily_activity),
+    (SELECT ROUND(AVG(logged_activities_distance), 2) FROM daily_activity),
+    (SELECT ROUND(STDDEV(logged_activities_distance), 2) FROM daily_activity),
     (SELECT MIN(logged_activities_distance) FROM daily_activity),
     (SELECT PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY logged_activities_distance) FROM daily_activity),
     (SELECT PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY logged_activities_distance) FROM daily_activity),
     (SELECT PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY logged_activities_distance) FROM daily_activity),
-    (SELECT MAX(logged_activities_distance) FROM daily_activity)
+    (SELECT ROUND(MAX(logged_activities_distance), 2) FROM daily_activity)
 );
 
 --Descriptive statistics of very_active_distance column
@@ -578,15 +578,15 @@ INSERT INTO hourly_steps_descriptive
 VALUES
 (
     'total_steps',
-    (SELECT COUNT(DISTINCT total_steps) FROM hourly_steps WHERE total_steps IS NOT NULL AND NOT '0'),
-    (SELECT COUNT(total_steps) FROM hourly_steps WHERE total_steps IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(AVG(total_steps), 0) FROM hourly_steps WHERE total_steps IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(STDDEV(total_steps), 0) FROM hourly_steps WHERE total_steps IS NOT NULL AND NOT '0'),
-    (SELECT MIN(total_steps) FROM hourly_steps WHERE total_steps IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY total_steps), 0) FROM hourly_steps WHERE total_steps IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY total_steps), 0) FROM hourly_steps WHERE total_steps IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY total_steps), 0) FROM hourly_steps WHERE total_steps IS NOT NULL AND NOT '0'),
-    (SELECT MAX(total_steps) FROM hourly_steps WHERE total_steps IS NOT NULL AND NOT '0')
+    (SELECT COUNT(DISTINCT total_steps) FROM hourly_steps WHERE total_steps IS NOT NULL AND total_steps != 0),
+    (SELECT COUNT(total_steps) FROM hourly_steps WHERE total_steps IS NOT NULL AND total_steps != 0),
+    (SELECT ROUND(AVG(total_steps), 0) FROM hourly_steps WHERE total_steps IS NOT NULL AND total_steps != 0),
+    (SELECT ROUND(STDDEV(total_steps), 0) FROM hourly_steps WHERE total_steps IS NOT NULL AND total_steps != 0),
+    (SELECT MIN(total_steps) FROM hourly_steps WHERE total_steps IS NOT NULL AND total_steps != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY total_steps), 0) FROM hourly_steps WHERE total_steps IS NOT NULL AND total_steps != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY total_steps), 0) FROM hourly_steps WHERE total_steps IS NOT NULL AND total_steps != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY total_steps), 0) FROM hourly_steps WHERE total_steps IS NOT NULL AND total_steps != 0),
+    (SELECT MAX(total_steps) FROM hourly_steps WHERE total_steps IS NOT NULL AND total_steps != 0)
 );
 
 
@@ -662,7 +662,7 @@ VALUES
     (SELECT COUNT(calories) FROM minute_calories),
     (SELECT ROUND(AVG(calories), 2) FROM minute_calories),
     (SELECT ROUND(STDDEV(calories), 2) FROM minute_calories),
-    (SELECT ROUND(MIN(calories) FROM minute_calories),
+    (SELECT ROUND(MIN(calories), 2) FROM minute_calories),
     (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY calories), 2) FROM minute_calories),
     (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY calories), 2) FROM minute_calories),
     (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY calories), 2) FROM minute_calories),
@@ -738,15 +738,15 @@ INSERT INTO minute_intensities_descriptive
 VALUES
 (
     'intensity',
-    (SELECT COUNT(DISTINCT intensity) FROM minute_intensities WHERE intensity IS NOT NULL AND NOT '0'),
-    (SELECT COUNT(intensity) FROM minute_intensities WHERE intensity IS NOT NULL AND NOT '0'),
+    (SELECT COUNT(DISTINCT intensity) FROM minute_intensities WHERE intensity IS NOT NULL AND intensity != 0),
+    (SELECT COUNT(intensity) FROM minute_intensities WHERE intensity IS NOT NULL AND intensity != 0),
     'not applicable',
     'not applicable',
-    (SELECT MIN(intensity) FROM minute_intensities WHERE intensity IS NOT NULL AND NOT '0'),
+    (SELECT MIN(intensity) FROM minute_intensities WHERE intensity IS NOT NULL AND intensity != 0),
     'not applicable',
     'not applicable',
     'not applicable',
-    (SELECT MAX(intensity) FROM minute_intensities WHERE intensity IS NOT NULL AND NOT '0')
+    (SELECT MAX(intensity) FROM minute_intensities WHERE intensity IS NOT NULL AND intensity != 0)
 );
 
 
@@ -994,15 +994,15 @@ INSERT INTO minute_steps_descriptive
 VALUES
 (
     'steps',
-    (SELECT COUNT(DISTINCT steps) FROM minute_steps WHERE steps IS NOT NULL AND NOT '0'),
-    (SELECT COUNT(steps) FROM minute_steps WHERE steps IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(AVG(steps), 0) FROM minute_steps WHERE steps IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(STDDEV(steps), 0) FROM minute_steps WHERE steps IS NOT NULL AND NOT '0'),
-    (SELECT MIN(steps) FROM minute_steps WHERE steps IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY steps), 0) FROM minute_steps WHERE steps IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY steps), 0) FROM minute_steps WHERE steps IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY steps), 0) FROM minute_steps WHERE steps IS NOT NULL AND NOT '0'),
-    (SELECT MAX(steps) FROM minute_steps WHERE steps IS NOT NULL AND NOT '0')
+    (SELECT COUNT(DISTINCT steps) FROM minute_steps WHERE steps IS NOT NULL AND steps != 0),
+    (SELECT COUNT(steps) FROM minute_steps WHERE steps IS NOT NULL AND steps != 0),
+    (SELECT ROUND(AVG(steps), 0) FROM minute_steps WHERE steps IS NOT NULL AND steps != 0),
+    (SELECT ROUND(STDDEV(steps), 0) FROM minute_steps WHERE steps IS NOT NULL AND steps != 0),
+    (SELECT MIN(steps) FROM minute_steps WHERE steps IS NOT NULL AND steps != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY steps), 0) FROM minute_steps WHERE steps IS NOT NULL AND steps != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY steps), 0) FROM minute_steps WHERE steps IS NOT NULL AND steps != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY steps), 0) FROM minute_steps WHERE steps IS NOT NULL AND steps != 0),
+    (SELECT MAX(steps) FROM minute_steps WHERE steps IS NOT NULL AND steps != 0)
 );
 
 
@@ -1090,15 +1090,15 @@ INSERT INTO weight_log_info_descriptive
 VALUES
 (
     'fat',
-    (SELECT COUNT(DISTINCT fat) FROM weight_log_info WHERE fat IS NOT NULL AND NOT '0'),
-    (SELECT COUNT(fat) FROM weight_log_info WHERE fat IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(AVG(fat), 0) FROM weight_log_info WHERE fat IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(STDDEV(fat), 0) FROM weight_log_info WHERE fat IS NOT NULL AND NOT '0'),
-    (SELECT MIN(fat) FROM weight_log_info WHERE fat IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY fat), 0) FROM weight_log_info WHERE fat IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY fat), 0) FROM weight_log_info WHERE fat IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY fat), 0) FROM weight_log_info WHERE fat IS NOT NULL AND NOT '0'),
-    (SELECT MAX(fat) FROM weight_log_info WHERE fat IS NOT NULL AND NOT '0')
+    (SELECT COUNT(DISTINCT fat) FROM weight_log_info WHERE fat IS NOT NULL AND fat != 0),
+    (SELECT COUNT(fat) FROM weight_log_info WHERE fat IS NOT NULL AND fat != 0),
+    (SELECT ROUND(AVG(fat), 0) FROM weight_log_info WHERE fat IS NOT NULL AND fat != 0),
+    (SELECT ROUND(STDDEV(fat), 0) FROM weight_log_info WHERE fat IS NOT NULL AND fat != 0),
+    (SELECT MIN(fat) FROM weight_log_info WHERE fat IS NOT NULL AND fat != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY fat), 0) FROM weight_log_info WHERE fat IS NOT NULL AND fat != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY fat), 0) FROM weight_log_info WHERE fat IS NOT NULL AND fat != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY fat), 0) FROM weight_log_info WHERE fat IS NOT NULL AND fat != 0),
+    (SELECT MAX(fat) FROM weight_log_info WHERE fat IS NOT NULL AND fat != 0)
 );
 
 --Descriptive statistics of bmi column
@@ -1202,15 +1202,15 @@ INSERT INTO daily_calories_descriptive
 VALUES
 (
     'calories',
-    (SELECT COUNT(DISTINCT calories) FROM daily_calories WHERE calories IS NOT NULL AND NOT '0'),
-    (SELECT COUNT(calories) FROM daily_calories WHERE calories IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(AVG(calories), 0) FROM daily_calories WHERE calories IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(STDDEV(calories), 0) FROM daily_calories WHERE calories IS NOT NULL AND NOT '0'),
-    (SELECT MIN(calories) FROM daily_calories WHERE calories IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY calories), 0) FROM daily_calories WHERE calories IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY calories), 0) FROM daily_calories WHERE calories IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY calories), 0) FROM daily_calories WHERE calories IS NOT NULL AND NOT '0'),
-    (SELECT MAX(calories) FROM daily_calories WHERE calories IS NOT NULL AND NOT '0')
+    (SELECT COUNT(DISTINCT calories) FROM daily_calories WHERE calories IS NOT NULL AND calories != 0),
+    (SELECT COUNT(calories) FROM daily_calories WHERE calories IS NOT NULL AND calories != 0),
+    (SELECT ROUND(AVG(calories), 0) FROM daily_calories WHERE calories IS NOT NULL AND calories != 0),
+    (SELECT ROUND(STDDEV(calories), 0) FROM daily_calories WHERE calories IS NOT NULL AND calories != 0),
+    (SELECT MIN(calories) FROM daily_calories WHERE calories IS NOT NULL AND calories != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY calories), 0) FROM daily_calories WHERE calories IS NOT NULL AND calories != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY calories), 0) FROM daily_calories WHERE calories IS NOT NULL AND calories != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY calories), 0) FROM daily_calories WHERE calories IS NOT NULL AND calories != 0),
+    (SELECT MAX(calories) FROM daily_calories WHERE calories IS NOT NULL AND calories != 0)
 );
 
 
@@ -1283,15 +1283,15 @@ INSERT INTO daily_intensities_descriptive
 VALUES
 (
     'lightly_active_minutes',
-    (SELECT COUNT(DISTINCT lightly_active_minutes) FROM daily_intensities WHERE lightly_active_minutes IS NOT NULL AND NOT '0'),
-    (SELECT COUNT(lightly_active_minutes) FROM daily_intensities WHERE lightly_active_minutes IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(AVG(lightly_active_minutes), 0) FROM daily_intensities WHERE lightly_active_minutes IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(STDDEV(lightly_active_minutes), 0) FROM daily_intensities WHERE lightly_active_minutes IS NOT NULL AND NOT '0'),
-    (SELECT MIN(lightly_active_minutes) FROM daily_intensities WHERE lightly_active_minutes IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY lightly_active_minutes), 0) FROM daily_intensities WHERE lightly_active_minutes IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY lightly_active_minutes), 0) FROM daily_intensities WHERE lightly_active_minutes IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY lightly_active_minutes), 0) FROM daily_intensities WHERE lightly_active_minutes IS NOT NULL AND NOT '0'),
-    (SELECT MAX(lightly_active_minutes) FROM daily_intensities WHERE lightly_active_minutes IS NOT NULL AND NOT '0')
+    (SELECT COUNT(DISTINCT lightly_active_minutes) FROM daily_intensities WHERE lightly_active_minutes IS NOT NULL AND lightly_active_minutes != 0),
+    (SELECT COUNT(lightly_active_minutes) FROM daily_intensities WHERE lightly_active_minutes IS NOT NULL AND lightly_active_minutes != 0),
+    (SELECT ROUND(AVG(lightly_active_minutes), 0) FROM daily_intensities WHERE lightly_active_minutes IS NOT NULL AND lightly_active_minutes != 0),
+    (SELECT ROUND(STDDEV(lightly_active_minutes), 0) FROM daily_intensities WHERE lightly_active_minutes IS NOT NULL AND lightly_active_minutes != 0),
+    (SELECT MIN(lightly_active_minutes) FROM daily_intensities WHERE lightly_active_minutes IS NOT NULL AND lightly_active_minutes != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY lightly_active_minutes), 0) FROM daily_intensities WHERE lightly_active_minutes IS NOT NULL AND lightly_active_minutes != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY lightly_active_minutes), 0) FROM daily_intensities WHERE lightly_active_minutes IS NOT NULL AND lightly_active_minutes != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY lightly_active_minutes), 0) FROM daily_intensities WHERE lightly_active_minutes IS NOT NULL AND lightly_active_minutes != 0),
+    (SELECT MAX(lightly_active_minutes) FROM daily_intensities WHERE lightly_active_minutes IS NOT NULL AND lightly_active_minutes != 0)
 );
 
 --Descriptive statistics of fairly_active_minutes column
@@ -1299,15 +1299,15 @@ INSERT INTO daily_intensities_descriptive
 VALUES
 (
     'fairly_active_minutes',
-    (SELECT COUNT(DISTINCT fairly_active_minutes) FROM daily_intensities WHERE fairly_active_minutes IS NOT NULL AND NOT '0'),
-    (SELECT COUNT(fairly_active_minutes) FROM daily_intensities WHERE fairly_active_minutes IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(AVG(fairly_active_minutes), 0) FROM daily_intensities WHERE fairly_active_minutes IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(STDDEV(fairly_active_minutes), 0) FROM daily_intensities WHERE fairly_active_minutes IS NOT NULL AND NOT '0'),
-    (SELECT MIN(fairly_active_minutes) FROM daily_intensities WHERE fairly_active_minutes IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY fairly_active_minutes), 0) FROM daily_intensities WHERE fairly_active_minutes IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY fairly_active_minutes), 0) FROM daily_intensities WHERE fairly_active_minutes IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY fairly_active_minutes), 0) FROM daily_intensities WHERE fairly_active_minutes IS NOT NULL AND NOT '0'),
-    (SELECT MAX(fairly_active_minutes) FROM daily_intensities WHERE fairly_active_minutes IS NOT NULL AND NOT '0')
+    (SELECT COUNT(DISTINCT fairly_active_minutes) FROM daily_intensities WHERE fairly_active_minutes IS NOT NULL AND fairly_active_minutes != 0),
+    (SELECT COUNT(fairly_active_minutes) FROM daily_intensities WHERE fairly_active_minutes IS NOT NULL AND fairly_active_minutes != 0),
+    (SELECT ROUND(AVG(fairly_active_minutes), 0) FROM daily_intensities WHERE fairly_active_minutes IS NOT NULL AND fairly_active_minutes != 0),
+    (SELECT ROUND(STDDEV(fairly_active_minutes), 0) FROM daily_intensities WHERE fairly_active_minutes IS NOT NULL AND fairly_active_minutes != 0),
+    (SELECT MIN(fairly_active_minutes) FROM daily_intensities WHERE fairly_active_minutes IS NOT NULL AND fairly_active_minutes != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY fairly_active_minutes), 0) FROM daily_intensities WHERE fairly_active_minutes IS NOT NULL AND fairly_active_minutes != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY fairly_active_minutes), 0) FROM daily_intensities WHERE fairly_active_minutes IS NOT NULL AND fairly_active_minutes != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY fairly_active_minutes), 0) FROM daily_intensities WHERE fairly_active_minutes IS NOT NULL AND fairly_active_minutes != 0),
+    (SELECT MAX(fairly_active_minutes) FROM daily_intensities WHERE fairly_active_minutes IS NOT NULL AND fairly_active_minutes != 0)
 );
 
 --Descriptive statistics of very_active_minutes column
@@ -1315,15 +1315,15 @@ INSERT INTO daily_intensities_descriptive
 VALUES
 (
     'very_active_minutes',
-    (SELECT COUNT(DISTINCT very_active_minutes) FROM daily_intensities WHERE very_active_minutes IS NOT NULL AND NOT '0'),
-    (SELECT COUNT(very_active_minutes) FROM daily_intensities WHERE very_active_minutes IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(AVG(very_active_minutes), 0) FROM daily_intensities WHERE very_active_minutes IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(STDDEV(very_active_minutes), 0) FROM daily_intensities WHERE very_active_minutes IS NOT NULL AND NOT '0'),
-    (SELECT MIN(very_active_minutes) FROM daily_intensities WHERE very_active_minutes IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY very_active_minutes), 0) FROM daily_intensities WHERE very_active_minutes IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY very_active_minutes), 0) FROM daily_intensities WHERE very_active_minutes IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY very_active_minutes), 0) FROM daily_intensities WHERE very_active_minutes IS NOT NULL AND NOT '0'),
-    (SELECT MAX(very_active_minutes) FROM daily_intensities WHERE very_active_minutes IS NOT NULL AND NOT '0')
+    (SELECT COUNT(DISTINCT very_active_minutes) FROM daily_intensities WHERE very_active_minutes IS NOT NULL AND very_active_minutes != 0),
+    (SELECT COUNT(very_active_minutes) FROM daily_intensities WHERE very_active_minutes IS NOT NULL AND very_active_minutes != 0),
+    (SELECT ROUND(AVG(very_active_minutes), 0) FROM daily_intensities WHERE very_active_minutes IS NOT NULL AND very_active_minutes != 0),
+    (SELECT ROUND(STDDEV(very_active_minutes), 0) FROM daily_intensities WHERE very_active_minutes IS NOT NULL AND very_active_minutes != 0),
+    (SELECT MIN(very_active_minutes) FROM daily_intensities WHERE very_active_minutes IS NOT NULL AND very_active_minutes != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY very_active_minutes), 0) FROM daily_intensities WHERE very_active_minutes IS NOT NULL AND very_active_minutes != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY very_active_minutes), 0) FROM daily_intensities WHERE very_active_minutes IS NOT NULL AND very_active_minutes != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY very_active_minutes), 0) FROM daily_intensities WHERE very_active_minutes IS NOT NULL AND very_active_minutes != 0),
+    (SELECT MAX(very_active_minutes) FROM daily_intensities WHERE very_active_minutes IS NOT NULL AND very_active_minutes != 0)
 );
 
 --Descriptive statistics of sedentary_active_distance column
@@ -1331,15 +1331,15 @@ INSERT INTO daily_intensities_descriptive
 VALUES
 (
     'sedentary_active_distance',
-    (SELECT COUNT(DISTINCT sedentary_active_distance) FROM daily_intensities WHERE sedentary_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT COUNT(sedentary_active_distance) FROM daily_intensities WHERE sedentary_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(AVG(sedentary_active_distance), 2) FROM daily_intensities WHERE sedentary_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(STDDEV(sedentary_active_distance), 2) FROM daily_intensities WHERE sedentary_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(MIN(sedentary_active_distance), 2) FROM daily_intensities WHERE sedentary_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY sedentary_active_distance), 2) FROM daily_intensities WHERE sedentary_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY sedentary_active_distance), 2) FROM daily_intensities WHERE sedentary_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY sedentary_active_distance), 2) FROM daily_intensities WHERE sedentary_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(MAX(sedentary_active_distance), 2) FROM daily_intensities WHERE sedentary_active_distance IS NOT NULL AND NOT '0')
+    (SELECT COUNT(DISTINCT sedentary_active_distance) FROM daily_intensities WHERE sedentary_active_distance IS NOT NULL AND sedentary_active_distance != 0),
+    (SELECT COUNT(sedentary_active_distance) FROM daily_intensities WHERE sedentary_active_distance IS NOT NULL AND sedentary_active_distance != 0),
+    (SELECT ROUND(AVG(sedentary_active_distance), 2) FROM daily_intensities WHERE sedentary_active_distance IS NOT NULL AND sedentary_active_distance != 0),
+    (SELECT ROUND(STDDEV(sedentary_active_distance), 2) FROM daily_intensities WHERE sedentary_active_distance IS NOT NULL AND sedentary_active_distance != 0),
+    (SELECT ROUND(MIN(sedentary_active_distance), 2) FROM daily_intensities WHERE sedentary_active_distance IS NOT NULL AND sedentary_active_distance != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY sedentary_active_distance), 2) FROM daily_intensities WHERE sedentary_active_distance IS NOT NULL AND sedentary_active_distance != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY sedentary_active_distance), 2) FROM daily_intensities WHERE sedentary_active_distance IS NOT NULL AND sedentary_active_distance != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY sedentary_active_distance), 2) FROM daily_intensities WHERE sedentary_active_distance IS NOT NULL AND sedentary_active_distance != 0),
+    (SELECT ROUND(MAX(sedentary_active_distance), 2) FROM daily_intensities WHERE sedentary_active_distance IS NOT NULL AND sedentary_active_distance != 0)
 );
 
 --Descriptive statistics of light_active_distance column
@@ -1347,15 +1347,15 @@ INSERT INTO daily_intensities_descriptive
 VALUES
 (
     'light_active_distance',
-    (SELECT COUNT(DISTINCT light_active_distance) FROM daily_intensities WHERE light_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT COUNT(light_active_distance) FROM daily_intensities WHERE light_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(AVG(light_active_distance), 4) FROM daily_intensities WHERE light_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(STDDEV(light_active_distance), 4) FROM daily_intensities WHERE light_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(MIN(light_active_distance), 4) FROM daily_intensities WHERE light_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY light_active_distance), 4) FROM daily_intensities WHERE light_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY light_active_distance), 4) FROM daily_intensities WHERE light_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY light_active_distance), 4) FROM daily_intensities WHERE light_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(MAX(light_active_distance), 4) FROM daily_intensities WHERE light_active_distance IS NOT NULL AND NOT '0')
+    (SELECT COUNT(DISTINCT light_active_distance) FROM daily_intensities WHERE light_active_distance IS NOT NULL AND light_active_distance != 0),
+    (SELECT COUNT(light_active_distance) FROM daily_intensities WHERE light_active_distance IS NOT NULL AND light_active_distance != 0),
+    (SELECT ROUND(AVG(light_active_distance), 2) FROM daily_intensities WHERE light_active_distance IS NOT NULL AND light_active_distance != 0),
+    (SELECT ROUND(STDDEV(light_active_distance), 2) FROM daily_intensities WHERE light_active_distance IS NOT NULL AND light_active_distance != 0),
+    (SELECT ROUND(MIN(light_active_distance), 2) FROM daily_intensities WHERE light_active_distance IS NOT NULL AND light_active_distance != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY light_active_distance), 2) FROM daily_intensities WHERE light_active_distance IS NOT NULL AND light_active_distance != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY light_active_distance), 2) FROM daily_intensities WHERE light_active_distance IS NOT NULL AND light_active_distance != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY light_active_distance), 2) FROM daily_intensities WHERE light_active_distance IS NOT NULL AND light_active_distance != 0),
+    (SELECT ROUND(MAX(light_active_distance), 2) FROM daily_intensities WHERE light_active_distance IS NOT NULL AND light_active_distance != 0)
 );
 
 --Descriptive statistics of moderately_active_distance column
@@ -1363,15 +1363,15 @@ INSERT INTO daily_intensities_descriptive
 VALUES
 (
     'moderately_active_distance',
-    (SELECT COUNT(DISTINCT moderately_active_distance) FROM daily_intensities WHERE moderately_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT COUNT(moderately_active_distance) FROM daily_intensities WHERE moderately_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(AVG(moderately_active_distance), 4) FROM daily_intensities WHERE moderately_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(STDDEV(moderately_active_distance), 4) FROM daily_intensities WHERE moderately_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(MIN(moderately_active_distance), 4) FROM daily_intensities WHERE moderately_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY moderately_active_distance), 4) FROM daily_intensities WHERE moderately_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY moderately_active_distance), 4) FROM daily_intensities WHERE moderately_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY moderately_active_distance), 4) FROM daily_intensities WHERE moderately_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(MAX(moderately_active_distance), 4) FROM daily_intensities WHERE moderately_active_distance IS NOT NULL AND NOT '0')
+    (SELECT COUNT(DISTINCT moderately_active_distance) FROM daily_intensities WHERE moderately_active_distance IS NOT NULL AND moderately_active_distance != 0),
+    (SELECT COUNT(moderately_active_distance) FROM daily_intensities WHERE moderately_active_distance IS NOT NULL AND moderately_active_distance != 0),
+    (SELECT ROUND(AVG(moderately_active_distance), 2) FROM daily_intensities WHERE moderately_active_distance IS NOT NULL AND moderately_active_distance != 0),
+    (SELECT ROUND(STDDEV(moderately_active_distance), 2) FROM daily_intensities WHERE moderately_active_distance IS NOT NULL AND moderately_active_distance != 0),
+    (SELECT ROUND(MIN(moderately_active_distance), 2) FROM daily_intensities WHERE moderately_active_distance IS NOT NULL AND moderately_active_distance != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY moderately_active_distance), 2) FROM daily_intensities WHERE moderately_active_distance IS NOT NULL AND moderately_active_distance != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY moderately_active_distance), 2) FROM daily_intensities WHERE moderately_active_distance IS NOT NULL AND moderately_active_distance != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY moderately_active_distance), 2) FROM daily_intensities WHERE moderately_active_distance IS NOT NULL AND moderately_active_distance != 0),
+    (SELECT ROUND(MAX(moderately_active_distance), 2) FROM daily_intensities WHERE moderately_active_distance IS NOT NULL AND moderately_active_distance != 0)
 );
 
 --Descriptive statistics of very_active_distance column
@@ -1379,15 +1379,15 @@ INSERT INTO daily_intensities_descriptive
 VALUES
 (
     'very_active_distance',
-    (SELECT COUNT(DISTINCT very_active_distance) FROM daily_intensities WHERE very_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT COUNT(very_active_distance) FROM daily_intensities WHERE very_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(AVG(very_active_distance), 4) FROM daily_intensities WHERE very_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(STDDEV(very_active_distance), 4) FROM daily_intensities WHERE very_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(MIN(very_active_distance), 4) FROM daily_intensities WHERE very_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY very_active_distance), 4) FROM daily_intensities WHERE very_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY very_active_distance), 4) FROM daily_intensities WHERE very_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY very_active_distance), 4) FROM daily_intensities WHERE very_active_distance IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(MAX(very_active_distance), 4) FROM daily_intensities WHERE very_active_distance IS NOT NULL AND NOT '0')
+    (SELECT COUNT(DISTINCT very_active_distance) FROM daily_intensities WHERE very_active_distance IS NOT NULL AND very_active_distance != 0),
+    (SELECT COUNT(very_active_distance) FROM daily_intensities WHERE very_active_distance IS NOT NULL AND very_active_distance != 0),
+    (SELECT ROUND(AVG(very_active_distance), 2) FROM daily_intensities WHERE very_active_distance IS NOT NULL AND very_active_distance != 0),
+    (SELECT ROUND(STDDEV(very_active_distance), 2) FROM daily_intensities WHERE very_active_distance IS NOT NULL AND very_active_distance != 0),
+    (SELECT ROUND(MIN(very_active_distance), 2) FROM daily_intensities WHERE very_active_distance IS NOT NULL AND very_active_distance != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY very_active_distance), 2) FROM daily_intensities WHERE very_active_distance IS NOT NULL AND very_active_distance != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY very_active_distance), 2) FROM daily_intensities WHERE very_active_distance IS NOT NULL AND very_active_distance != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY very_active_distance), 2) FROM daily_intensities WHERE very_active_distance IS NOT NULL AND very_active_distance != 0),
+    (SELECT ROUND(MAX(very_active_distance), 2) FROM daily_intensities WHERE very_active_distance IS NOT NULL AND very_active_distance != 0)
 );
 
 
@@ -1396,7 +1396,7 @@ CREATE TABLE daily_steps_descriptive
 (
     "column" VARCHAR,
     unique_values VARCHAR,
-    count VARCHAR
+    count VARCHAR,
     mean VARCHAR,
     standard_deviation VARCHAR,
     min VARCHAR,
@@ -1443,15 +1443,15 @@ INSERT INTO daily_steps_descriptive
 VALUES
 (
     'total_steps',
-    (SELECT COUNT(DISTINCT total_steps) FROM daily_steps WHERE total_steps IS NOT NULL AND NOT '0'),
-    (SELECT COUNT(total_steps) FROM daily_steps WHERE total_steps IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(AVG(total_steps), 0) FROM daily_steps WHERE total_steps IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(STDDEV(total_steps), 0) FROM daily_steps WHERE total_steps IS NOT NULL AND NOT '0'),
-    (SELECT MIN(total_steps) FROM daily_steps WHERE total_steps IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY total_steps), 0) FROM daily_steps WHERE total_steps IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY total_steps), 0) FROM daily_steps WHERE total_steps IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY total_steps), 0) FROM daily_steps WHERE total_steps IS NOT NULL AND NOT '0'),
-    (SELECT MAX(total_steps) FROM daily_steps WHERE total_steps IS NOT NULL AND NOT '0')
+    (SELECT COUNT(DISTINCT total_steps) FROM daily_steps WHERE total_steps IS NOT NULL AND total_steps != 0),
+    (SELECT COUNT(total_steps) FROM daily_steps WHERE total_steps IS NOT NULL AND total_steps != 0),
+    (SELECT ROUND(AVG(total_steps), 0) FROM daily_steps WHERE total_steps IS NOT NULL AND total_steps != 0),
+    (SELECT ROUND(STDDEV(total_steps), 0) FROM daily_steps WHERE total_steps IS NOT NULL AND total_steps != 0),
+    (SELECT MIN(total_steps) FROM daily_steps WHERE total_steps IS NOT NULL AND total_steps != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY total_steps), 0) FROM daily_steps WHERE total_steps IS NOT NULL AND total_steps != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY total_steps), 0) FROM daily_steps WHERE total_steps IS NOT NULL AND total_steps != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY total_steps), 0) FROM daily_steps WHERE total_steps IS NOT NULL AND total_steps != 0),
+    (SELECT MAX(total_steps) FROM daily_steps WHERE total_steps IS NOT NULL AND total_steps != 0)
 );
 
 
@@ -1526,11 +1526,11 @@ VALUES
     (SELECT COUNT(DISTINCT total_sleep_records) FROM sleep_day),
     (SELECT COUNT(total_sleep_records) FROM sleep_day),
     (SELECT ROUND(AVG(total_sleep_records), 0) FROM sleep_day),
-    (SELECT 'not applicable',
+    'not applicable',
     (SELECT MIN(total_sleep_records) FROM sleep_day),
-    (SELECT 'not applicable',
-    (SELECT 'not applicable',
-    (SELECT 'not applicable',
+    'not applicable',
+    'not applicable',
+    'not applicable',
     (SELECT MAX(total_sleep_records) FROM sleep_day)
 );
 
@@ -1539,15 +1539,15 @@ INSERT INTO sleep_day_descriptive
 VALUES
 (
     'total_minutes_asleep',
-    (SELECT COUNT(DISTINCT total_minutes_asleep) FROM sleep_day WHERE total_minutes_asleep IS NOT NULL AND NOT '0'),
-    (SELECT COUNT(total_minutes_asleep) FROM sleep_day WHERE total_minutes_asleep IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(AVG(total_minutes_asleep), 0) FROM sleep_day WHERE total_minutes_asleep IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(STDDEV(total_minutes_asleep), 0) FROM sleep_day WHERE total_minutes_asleep IS NOT NULL AND NOT '0'),
-    (SELECT MIN(total_minutes_asleep) FROM sleep_day WHERE total_minutes_asleep IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY total_minutes_asleep), 0) FROM sleep_day WHERE total_minutes_asleep IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY total_minutes_asleep), 0) FROM sleep_day WHERE total_minutes_asleep IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY total_minutes_asleep), 0) FROM sleep_day WHERE total_minutes_asleep IS NOT NULL AND NOT '0'),
-    (SELECT MAX(total_minutes_asleep) FROM sleep_day WHERE total_minutes_asleep IS NOT NULL AND NOT '0')
+    (SELECT COUNT(DISTINCT total_minutes_asleep) FROM sleep_day WHERE total_minutes_asleep IS NOT NULL AND total_minutes_asleep != 0),
+    (SELECT COUNT(total_minutes_asleep) FROM sleep_day WHERE total_minutes_asleep IS NOT NULL AND total_minutes_asleep != 0),
+    (SELECT ROUND(AVG(total_minutes_asleep), 0) FROM sleep_day WHERE total_minutes_asleep IS NOT NULL AND total_minutes_asleep != 0),
+    (SELECT ROUND(STDDEV(total_minutes_asleep), 0) FROM sleep_day WHERE total_minutes_asleep IS NOT NULL AND total_minutes_asleep != 0),
+    (SELECT MIN(total_minutes_asleep) FROM sleep_day WHERE total_minutes_asleep IS NOT NULL AND total_minutes_asleep != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY total_minutes_asleep), 0) FROM sleep_day WHERE total_minutes_asleep IS NOT NULL AND total_minutes_asleep != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY total_minutes_asleep), 0) FROM sleep_day WHERE total_minutes_asleep IS NOT NULL AND total_minutes_asleep != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY total_minutes_asleep), 0) FROM sleep_day WHERE total_minutes_asleep IS NOT NULL AND total_minutes_asleep != 0),
+    (SELECT MAX(total_minutes_asleep) FROM sleep_day WHERE total_minutes_asleep IS NOT NULL AND total_minutes_asleep != 0)
 );
 
 --Descriptive statistics of total_time_in_bed column
@@ -1555,13 +1555,13 @@ INSERT INTO sleep_day_descriptive
 VALUES
 (
     'total_time_in_bed',
-    (SELECT COUNT(DISTINCT total_time_in_bed) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND NOT '0'),
-    (SELECT COUNT(total_time_in_bed) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(AVG(total_time_in_bed), 0) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(STDDEV(total_time_in_bed), 0) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND NOT '0'),
-    (SELECT MIN(total_time_in_bed) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY total_time_in_bed), 0) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY total_time_in_bed), 0) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND NOT '0'),
-    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY total_time_in_bed), 0) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND NOT '0'),
-    (SELECT MAX(total_time_in_bed) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND NOT '0')
+    (SELECT COUNT(DISTINCT total_time_in_bed) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND total_time_in_bed != 0),
+    (SELECT COUNT(total_time_in_bed) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND total_time_in_bed != 0),
+    (SELECT ROUND(AVG(total_time_in_bed), 0) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND total_time_in_bed != 0),
+    (SELECT ROUND(STDDEV(total_time_in_bed), 0) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND total_time_in_bed != 0),
+    (SELECT MIN(total_time_in_bed) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND total_time_in_bed != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY total_time_in_bed), 0) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND total_time_in_bed != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY total_time_in_bed), 0) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND total_time_in_bed != 0),
+    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY total_time_in_bed), 0) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND total_time_in_bed != 0),
+    (SELECT MAX(total_time_in_bed) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND total_time_in_bed != 0)
 );

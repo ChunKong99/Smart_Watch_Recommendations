@@ -10,13 +10,13 @@
 
 ## Breaking objectives down into smaller pieces
 1)  Product development recommendations:
-a)  What are the top usage categories (e.g. for sleep pattern detection or fitness related activities)?
-b)  What are the metrics that strongly correlate to benefits (e.g. calory burning)?
+-   What are the top usage categories (e.g. for sleep pattern detection or fitness related activities)?
+-   What are the metrics that strongly correlate to benefits (e.g. calory burning)?
 
 2)  Marketing recommendations:
-a)  What are the age group of users (e.g. derived assumption based on heart rate)?
-b)  What are the usage trend?
-c)  What are the hours where usage is highest?
+-   What are the age group of users (e.g. derived assumption based on heart rate)?
+-   What are the usage trend?
+-   What are the hours where usage is highest?
 
 ## Identify the stakeholders
 1)	Urška Sršen, Co-founder of Bellabeat, Chief Creative Officer
@@ -32,22 +32,22 @@ c)  What are the hours where usage is highest?
 1)  Identify publicly available data: FitBit Fitness Tracker Data
 2)  Identify location of data: [Bellabeat Dataset] (www.kaggle.com/datasets/arashnic/fitbit)
 3)  Integrity, bias, and credibility
-a)  Licensed under CCO: Public Domain license
-b)  Dataset is stored by user "Mobius" and made publicly accessible. Data integrity is acceptable based on business objectives
-c)	Dataset is in long format
-d)  id, date, and time fields allow for 2 options of contextual analysis;
- i)     Time-based analysis
- ii)    Agent-based analysis
+-   Licensed under CCO: Public Domain license
+-   Dataset is stored by user "Mobius" and made publicly accessible. Data integrity is acceptable based on business objectives
+-   Dataset is in long format
+-   id, date, and time fields allow for 2 options of contextual analysis;
+  -     Time-based analysis
+  -     Agent-based analysis
 
 
 # Process
 1)  Total of 10.4mil rows in 26 tables in the dataset, hence, SQL is chosen to do data cleaning and analysis
 2)  Technologies used:
-a)  **SQL**: for data cleansing, querying, and analysis, providing critical insights
-b)  **PostgreSQL**: database
-c)  **Tableau**: tool for graphical analysis and visualizations
-d)  **Visual Studio Code**: code editor to execute SQL queries
-e)  **Git & Github**: version control and hosting my files for public access
+-   **SQL**: for data cleansing, querying, and analysis, providing critical insights
+-   **PostgreSQL**: database
+-   **Tableau**: tool for graphical analysis and visualizations
+-   **Visual Studio Code**: code editor to execute SQL queries
+-   **Git & Github**: version control and hosting my files for public access
 3)  Load 26 csv files into PostgreSQL
 
 ## Data cleansing
@@ -121,21 +121,21 @@ WHERE id IS NULL;
 ## Exploratory Data Analysis
 Each query aims at investigating specific aspects of the relationship between metrics and other variables that provides guidance towards choosing the appropriate marketing channel(s).
 1)  Keeping in mind business objectives of product development and marketing recommendations;
-a)  Top features used
-b)  Distribution of usage throughout a week to provide insight for marketing
-c)  Find trend of top usage through time
-d)  Which intensity of exercise are these users more interested in?
-e)  What is the most popular duration of exercise?
+-   Top features used
+-   Distribution of usage throughout a week to provide insight for marketing
+-   Find trend of top usage through time
+-   Which intensity of exercise are these users more interested in?
+-   What is the most popular duration of exercise?
 
 2)	Missing values
-a)  Percentage of missing values are observed to be very high on columns like logged_activities_distance and sedentary_active_distance which suggests lack of usage, providing insight into the amount of usage for these tracking features. Based on understanding of the business domain, the missing values are not included in statistical analysis in [statistical analysis](code/9_statistical_analysis.sql) and omitted from analysis due to lack of valuable insight.
-b)  Percentage of missing values of tracker_distance is very low and this explains that the logging of distance during activities (logged_activities_distance) and measurement of sedentary distance (sedentary_active_distance) are features not used or activated while the device continues to track all distances in the background.
-c)  Product development recommendation; look into user feedback on logging of distance during activities (logged_activities_distance) and measurement of sedentary distance (sedentary_active_distance) to determine the direction of product development for these features.
-d)  Marketing recommendation; do not emphasize logging of distance during activities (logged_activities_distance) and measurement of sedentary distance (sedentary_active_distance) as users do not use these features.
+-   Percentage of missing values are observed to be very high on columns like logged_activities_distance and sedentary_active_distance which suggests lack of usage, providing insight into the amount of usage for these tracking features. Based on understanding of the business domain, the missing values are not included in statistical analysis in [statistical analysis](code/9_statistical_analysis.sql) and omitted from analysis due to lack of valuable insight.
+-   Percentage of missing values of tracker_distance is very low and this explains that the logging of distance during activities (logged_activities_distance) and measurement of sedentary distance (sedentary_active_distance) are features not used or activated while the device continues to track all distances in the background.
+-   Product development recommendation; look into user feedback on logging of distance during activities (logged_activities_distance) and measurement of sedentary distance (sedentary_active_distance) to determine the direction of product development for these features.
+-   Marketing recommendation; do not emphasize logging of distance during activities (logged_activities_distance) and measurement of sedentary distance (sedentary_active_distance) as users do not use these features.
 
 3)  Data types
-a)  date and time were reformatted and provided correct data types in [data cleansing and date conversion](code/4_data_cleansing_date_conversion.sql).
-b)  For complete SQL code, please refer [data cleansing and date conversion](code/4_data_cleansing_date_conversion.sql). Snippet of SQL code is as follows:
+-   date and time were reformatted and provided correct data types in [data cleansing and date conversion](code/4_data_cleansing_date_conversion.sql).
+-   For complete SQL code, please refer [data cleansing and date conversion](code/4_data_cleansing_date_conversion.sql). Snippet of SQL code is as follows:
 ```
 --Add new column and convert date and time format from FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM to YYYY/MM/DD and HH:MM:SS in hourly_calories_mar
 ALTER TABLE hourly_calories_mar ADD COLUMN cleaned_date date;
@@ -149,14 +149,14 @@ SET cleaned_time = (EXTRACT(HOUR FROM TO_TIMESTAMP(activityhour, 'FMMM/FMDD/YYYY
 ```
 
 4)  Statistical analysis (univariate analysis)
-a)  Numerical values are analysed to obtain
- i)     Quantile statistics; min, max, median, 25th percentile, and 75th percentile
- ii)    Descriptive statistics; mean and standard deviation
- iii)   Distribution histogram
-b)  Categorical values are analysed to obtain
- i)     Number of values
- ii)    Number of distinct values
-c)  For complete SQL code, please refer "9_statistical_analysis.sql". Snippet of SQL code is as follows:
+-   Numerical values are analysed to obtain
+  -     Quantile statistics; min, max, median, 25th percentile, and 75th percentile
+  -     Descriptive statistics; mean and standard deviation
+  -     Distribution histogram
+-   Categorical values are analysed to obtain
+  -     Number of values
+  -     Number of distinct values
+-   For complete SQL code, please refer "9_statistical_analysis.sql". Snippet of SQL code is as follows:
 ```
 --Create table for statistical analysis values for sleep_day table
 CREATE TABLE sleep_day_descriptive
@@ -206,41 +206,41 @@ VALUES
 );
 ```
 ![statistical analysis](images/statistical_analysis.png)
-c)  Further analysis on number of values or occurences for various categorical attributes
- i)     Plotting distinct counts of features vs date (day)
+-   Further analysis on number of values or occurences for various categorical attributes
+  -     Plotting distinct counts of features vs date (day)
 ![top features used](images/top_features_used.png)
- ii)    Calory and steps measurements are the top usage categories, followed by sleep measurement and weight measurement.
- iii)   Product development recommendation; emphasize on developing more features related to calories and steps measurements. These features are being used most.
- iv)    Marketing recommendation; do not emphasize on weight measurement feature as less than half of the users use this feature on a daily basis.
- ii)    Plotting categories of intensities vs date (day)
+  -     Calory and steps measurements are the top usage categories, followed by sleep measurement and weight measurement.
+  -     Product development recommendation; emphasize on developing more features related to calories and steps measurements. These features are being used most.
+  -     Marketing recommendation; do not emphasize on weight measurement feature as less than half of the users use this feature on a daily basis.
+-   Plotting categories of intensities vs date (day)
  ![breakdown of intensity categories](images/breakdown_of_intensity_categories.png)
- iii)   Users spend most time being sedentary.
- iv)    When active, users prefer to be lightly active as compared to fairly active or very active and by wide margin.
- v)     Product development recommendation; development of new features should be directed towards lightly active activities instead of fairly active and very active.
- vi)    Marketing recommendation; do not emphasize on fairly active and lightly active activities when considering marketing campaigns as these are not what users are spending time on.
-d)  Further analysis on distributions
- i)     Plotting
+  -     Users spend most time being sedentary.
+  -     When active, users prefer to be lightly active as compared to fairly active or very active and by wide margin.
+  -     Product development recommendation; development of new features should be directed towards lightly active activities instead of fairly active and very active.
+  -     Marketing recommendation; do not emphasize on fairly active and lightly active activities when considering marketing campaigns as these are not what users are spending time on.
+-   Further analysis on distributions
+  -     Plotting total_steps vs day of week
  ![total steps by day of week](images/total_steps_by_day_of_week.png)
- ii)    Users are most active on Tuesdays, followed by Wednesdays and Thursdays.
- iii)   Users are least active on Sundays, followed by Mondays and Fridays.
- iv)    Product development recommendation; consider providing customized features for routines that suit work out plans on Tuesdays, Wednesdays, and Thursdays.
- v)     Marketing recommendation; since users are least active with their devices and workout on Sundays, Mondays, and Fridays, consider launching campaigns on these days to show them new features and services.
- ii)    Plotting
+  -     Users are most active on Tuesdays, followed by Wednesdays and Thursdays.
+  -     Users are least active on Sundays, followed by Mondays and Fridays.
+  -     Product development recommendation; consider providing customized features for routines that suit work out plans on Tuesdays, Wednesdays, and Thursdays.
+  -     Marketing recommendation; since users are least active with their devices and workout on Sundays, Mondays, and Fridays, consider launching campaigns on these days to show them new features and services.
+ -  Plotting number of steps vs hour of day
  ![number of steps by hour](images/number_of_steps_by_hour.png)
- iii)   Users are on the move or are working out during the hours of 7pm, followed by 6pm and 12pm.
- iv)    Users are least active during the window of 2am - 5am.
- v)     Product development recommendation; users are on the move or are working out during the period of 6pm - 8pm, so new features which offers value when moving or working out during these hours are great. Note that movements during 12pm is due lunch hour.
- vi)    Marketing recommendation;  since users are most active with their devices during the hours of 7pm, 6pm, and 12pm, consider launching campaigns during other hours to show them new features and services.
+  -     Users are on the move or are working out during the hours of 7pm, followed by 6pm and 12pm.
+  -     Users are least active during the window of 2am - 5am.
+-   Product development recommendation; users are on the move or are working out during the period of 6pm - 8pm, so new features which offers value when moving or working out during these hours are great. Note that movements during 12pm is due lunch hour.
+  -     Marketing recommendation;  since users are most active with their devices during the hours of 7pm, 6pm, and 12pm, consider launching campaigns during other hours to show them new features and services.
 
 5)  Contextual Analysis
-a)  Correlation analysis
+-   Correlation analysis
 Using Tableau, Pearson Correlation Coefficient and p-value are as follows:
 ![correlation analysis](images/correlation_analysis.png)
-b)  Qualitative analysis
+  -     Qualitative analysis
 Plotting total_steps vs calories
 ![calories vs total_steps](images/calories_vs_total_steps.png)
 Amount of calories burnt directly correlates to amount of total steps taken.
-c)  Time-based analysis
+  -     Time-based analysis
 Plotting total_steps vs date (day)
 ![total steps through time](images/total_steps_through_time.png)
 The trend is up through time and this shows that users are either increasing their total steps through time or are increasing their use of the device for the feature of steps measurement.
@@ -249,22 +249,22 @@ d)  Dashboard
 
 # Recommendations
 1)  Product development recommendations:
-a)  Emphasize on developing more features related to calories and steps measurements. These features are being used most.
-b)  Development of new features should be directed towards lightly active activities instead of fairly active and very active.
-c)  Consider providing customized features for routines that suit work out plans on Tuesdays, Wednesdays, and Thursdays.
-d)  Users are on the move or are working out during the period of 6pm - 8pm, so new features which offers value when moving or working out during these hours are great. Note that movements during 12pm is due lunch hour.
-e)  Look into user feedback on logging of distance during activities (logged_activities_distance) and measurement of sedentary distance (sedentary_active_distance) to determine the direction of product development for these features.
+-   Emphasize on developing more features related to calories and steps measurements. These features are being used most.
+-   Development of new features should be directed towards lightly active activities instead of fairly active and very active.
+-   Consider providing customized features for routines that suit work out plans on Tuesdays, Wednesdays, and Thursdays.
+-   Users are on the move or are working out during the period of 6pm - 8pm, so new features which offers value when moving or working out during these hours are great. Note that movements during 12pm is due lunch hour.
+-   Look into user feedback on logging of distance during activities (logged_activities_distance) and measurement of sedentary distance (sedentary_active_distance) to determine the direction of product development for these features.
 
 2)  Marketing recommendations:
-a)  Do not emphasize on weight measurement feature as less than half of the users use this feature on a daily basis.
-b)  Do not emphasize on fairly active and lightly active activities when considering marketing campaigns as these are not what users are spending time on.
-c)  Since users are least active with their devices and workout on Sundays, Mondays, and Fridays, consider launching campaigns on these days to show them new features and services.
-d)  Since users are most active with their devices during the hours of 7pm, 6pm, and 12pm, consider launching campaigns during other hours to show them new features and services.
-e)  Do not emphasize logging of distance during activities (logged_activities_distance) and measurement of sedentary distance (sedentary_active_distance) as users do not use these features.
+-   Do not emphasize on weight measurement feature as less than half of the users use this feature on a daily basis.
+-   Do not emphasize on fairly active and lightly active activities when considering marketing campaigns as these are not what users are spending time on.
+-   Since users are least active with their devices and workout on Sundays, Mondays, and Fridays, consider launching campaigns on these days to show them new features and services.
+-   Since users are most active with their devices during the hours of 7pm, 6pm, and 12pm, consider launching campaigns during other hours to show them new features and services.
+-   Do not emphasize logging of distance during activities (logged_activities_distance) and measurement of sedentary distance (sedentary_active_distance) as users do not use these features.
 
 3)  Closing thoughts
-a)  More insights into reasons of why users tend to use distance-related features less can be found by firstly obtaining feedback from customers.
-b)  Data from other smart devices and companies will help confirm conclusions and recommendations made.
-c)  Additional dataset can reinforce these recommendations as limitation of this dataset produces margin of error of 12.2% when confidence level is 85%.
+-   More insights into reasons of why users tend to use distance-related features less can be found by firstly obtaining feedback from customers.
+-   Data from other smart devices and companies will help confirm conclusions and recommendations made.
+-   Additional dataset can reinforce these recommendations as limitation of this dataset produces margin of error of 12.2% when confidence level is 85%.
 
 --end--

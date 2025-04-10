@@ -150,12 +150,12 @@ SET cleaned_time = (EXTRACT(HOUR FROM TO_TIMESTAMP(activityhour, 'FMMM/FMDD/YYYY
 
 4)  Statistical analysis (univariate analysis)
 -   Numerical values are analysed to obtain
-    -   Quantile statistics; min, max, median, 25th percentile, and 75th percentile
-    -   Descriptive statistics; mean and standard deviation
-    -   Distribution histogram
+ -   Quantile statistics; min, max, median, 25th percentile, and 75th percentile
+ -   Descriptive statistics; mean and standard deviation
+ -   Distribution histogram
 -   Categorical values are analysed to obtain
-    -   Number of values
-    -   Number of distinct values
+ -   Number of values
+ -   Number of distinct values
 -   For complete SQL code, please refer "9_statistical_analysis.sql". Snippet of SQL code is as follows:
 ```
 --Create table for statistical analysis values for sleep_day table
@@ -230,21 +230,22 @@ VALUES
         -   Users are on the move or are working out during the hours of 7pm, followed by 6pm and 12pm.
         -   Users are least active during the window of 2am - 5am.
 -   Product development recommendation; users are on the move or are working out during the period of 6pm - 8pm, so new features which offers value when moving or working out during these hours are great. Note that movements during 12pm is due lunch hour.
-    -   Marketing recommendation;  since users are most active with their devices during the hours of 7pm, 6pm, and 12pm, consider launching campaigns during other hours to show them new features and services.
+ -      Marketing recommendation;  since users are most active with their devices during the hours of 7pm, 6pm, and 12pm, consider launching campaigns during other hours to show them new features and services.
 
 5)  Contextual Analysis
 -   Correlation analysis
 Using Tableau, Pearson Correlation Coefficient and p-value are as follows:
 ![correlation analysis](images/correlation_analysis.png)
-    -   Qualitative analysis
+ -      Qualitative analysis
 Plotting total_steps vs calories
 ![calories vs total_steps](images/calories_vs_total_steps.png)
 Amount of calories burnt directly correlates to amount of total steps taken.
-    -   Time-based analysis
+ -      Time-based analysis
 Plotting total_steps vs date (day)
 ![total steps through time](images/total_steps_through_time.png)
 The trend is up through time and this shows that users are either increasing their total steps through time or are increasing their use of the device for the feature of steps measurement.
-d)  Dashboard
+
+6)  Dashboard
 ![dashboard](images/dashboard.png)
 
 # Recommendations

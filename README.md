@@ -4,11 +4,11 @@
 
 
 # Identify Objectives
-## Objectives:
+### Objectives:
 1) Product development recommendations based on trends found in publicly available smart device usage data
 2) Marketing recommendations based on trends found in publicly available smart device usage data
 
-## Breaking objectives down into smaller pieces
+### Breaking objectives down into smaller pieces
 1)  Product development recommendations:
 -   What are the top usage categories (e.g. for sleep pattern detection or fitness related activities)?
 -   What are the metrics that strongly correlate to benefits (e.g. calory burning)?
@@ -18,7 +18,7 @@
 -   What are the usage trend?
 -   What are the hours where usage is highest?
 
-## Identify the stakeholders
+### Identify the stakeholders
 1)	Urška Sršen, Co-founder of Bellabeat, Chief Creative Officer
 2)	Sando Mur, Co-founder of Bellabeat and key member of the Bellabeat executive team
 
@@ -50,7 +50,7 @@
 -   **Git & Github**: version control and hosting my files for public access
 3)  Load 26 csv files into PostgreSQL
 
-## Data cleansing
+### Data cleansing
 1)  date and time values are converted from FMMM/FMDD/YYYY FMHH:FMMM:FMSS AM/PM format in [data cleansing and date conversion](code/4_data_cleansing_date_conversion.sql). Snippet of SQL code is as follows:
 ```
 --Add new column and convert date and time format from FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM to YYYY/MM/DD and HH:MM:SS in hourly_calories_apr
@@ -118,7 +118,7 @@ WHERE id IS NULL;
 
 
 # Analyse
-## Exploratory Data Analysis
+### Exploratory Data Analysis
 Each query aims at investigating specific aspects of the relationship between metrics and other variables that provides guidance towards choosing the appropriate marketing channel(s).
 1)  Keeping in mind business objectives of product development and marketing recommendations;
 -   Top features used

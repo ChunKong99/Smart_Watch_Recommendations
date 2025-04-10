@@ -1,4 +1,4 @@
---Create table for descriptive statistics values for daily_activity table
+--Create table for statistical analysis values for daily_activity table
 CREATE TABLE daily_activity_descriptive
 (
     "column" VARCHAR,
@@ -13,7 +13,7 @@ CREATE TABLE daily_activity_descriptive
     max VARCHAR
 );
 
---Descriptive statistics of id column
+--Statistical analysis of id column
 INSERT INTO daily_activity_descriptive
 VALUES
 (
@@ -29,7 +29,7 @@ VALUES
     (SELECT MAX(id) FROM daily_activity)
 );
 
---Descriptive statistics of date column
+--Statistical analysis of date column
 INSERT INTO daily_activity_descriptive
 VALUES
 (
@@ -45,7 +45,7 @@ VALUES
     (SELECT MAX(date) FROM daily_activity)
 );
 
---Descriptive statistics of total_steps column
+--Statistical analysis of total_steps column
 INSERT INTO daily_activity_descriptive
 VALUES
 (
@@ -61,7 +61,7 @@ VALUES
     (SELECT MAX(total_steps) FROM daily_activity)
 );
 
---Descriptive statistics of total_distance column
+--Statistical analysis of total_distance column
 INSERT INTO daily_activity_descriptive
 VALUES
 (
@@ -77,7 +77,7 @@ VALUES
     (SELECT ROUND(MAX(total_distance), 2) FROM daily_activity)
 );
 
---Descriptive statistics of tracker_distance column
+--Statistical analysis of tracker_distance column
 INSERT INTO daily_activity_descriptive
 VALUES
 (
@@ -93,7 +93,7 @@ VALUES
     (SELECT ROUND(MAX(tracker_distance), 2) FROM daily_activity)
 );
 
---Descriptive statistics of logged_activities_distance column
+--Statistical analysis of logged_activities_distance column
 INSERT INTO daily_activity_descriptive
 VALUES
 (
@@ -109,7 +109,7 @@ VALUES
     (SELECT ROUND(MAX(logged_activities_distance), 2) FROM daily_activity)
 );
 
---Descriptive statistics of very_active_distance column
+--Statistical analysis of very_active_distance column
 INSERT INTO daily_activity_descriptive
 VALUES
 (
@@ -125,7 +125,7 @@ VALUES
     (SELECT ROUND(MAX(very_active_distance), 2) FROM daily_activity)
 );
 
---Descriptive statistics of moderately_active_distance column
+--Statistical analysis of moderately_active_distance column
 INSERT INTO daily_activity_descriptive
 VALUES
 (
@@ -141,7 +141,7 @@ VALUES
     (SELECT ROUND(MAX(moderately_active_distance), 2) FROM daily_activity)
 );
 
---Descriptive statistics of light_active_distance column
+--Statistical analysis of light_active_distance column
 INSERT INTO daily_activity_descriptive
 VALUES
 (
@@ -157,7 +157,7 @@ VALUES
     (SELECT ROUND(MAX(light_active_distance), 2) FROM daily_activity)
 );
 
---Descriptive statistics of sedentary_active_distance column
+--Statistical analysis of sedentary_active_distance column
 INSERT INTO daily_activity_descriptive
 VALUES
 (
@@ -173,7 +173,7 @@ VALUES
     (SELECT ROUND(MAX(sedentary_active_distance), 2) FROM daily_activity)
 );
 
---Descriptive statistics of very_active_minutes column
+--Statistical analysis of very_active_minutes column
 INSERT INTO daily_activity_descriptive
 VALUES
 (
@@ -189,7 +189,7 @@ VALUES
     (SELECT MAX(very_active_minutes) FROM daily_activity)
 );
 
---Descriptive statistics of fairly_active_minutes column
+--Statistical analysis of fairly_active_minutes column
 INSERT INTO daily_activity_descriptive
 VALUES
 (
@@ -205,7 +205,7 @@ VALUES
     (SELECT MAX(fairly_active_minutes) FROM daily_activity)
 );
 
---Descriptive statistics of lightly_active_minutes column
+--Statistical analysis of lightly_active_minutes column
 INSERT INTO daily_activity_descriptive
 VALUES
 (
@@ -221,7 +221,7 @@ VALUES
     (SELECT MAX(lightly_active_minutes) FROM daily_activity)
 );
 
---Descriptive statistics of sedentary_minutes column
+--Statistical analysis of sedentary_minutes column
 INSERT INTO daily_activity_descriptive
 VALUES
 (
@@ -237,7 +237,7 @@ VALUES
     (SELECT MAX(sedentary_minutes) FROM daily_activity)
 );
 
---Descriptive statistics of calories column
+--Statistical analysis of calories column
 INSERT INTO daily_activity_descriptive
 VALUES
 (
@@ -254,7 +254,7 @@ VALUES
 );
 
 
---Create table for descriptive statistics values for heart_rate_seconds table
+--Create table for statistical analysis values for heart_rate_seconds table
 CREATE TABLE heart_rate_seconds_descriptive
 (
     "column" VARCHAR,
@@ -269,7 +269,7 @@ CREATE TABLE heart_rate_seconds_descriptive
     max VARCHAR
 );
 
---Descriptive statistics of id column
+--Statistical analysis of id column
 INSERT INTO heart_rate_seconds_descriptive
 VALUES
 (
@@ -285,7 +285,7 @@ VALUES
     (SELECT MAX(id) FROM heart_rate_seconds)
 );
 
---Descriptive statistics of date column
+--Statistical analysis of date column
 INSERT INTO heart_rate_seconds_descriptive
 VALUES
 (
@@ -301,7 +301,7 @@ VALUES
     (SELECT MAX(date) FROM heart_rate_seconds)
 );
 
---Descriptive statistics of time column
+--Statistical analysis of time column
 INSERT INTO heart_rate_seconds_descriptive
 VALUES
 (
@@ -317,7 +317,7 @@ VALUES
     (SELECT MAX(time) FROM heart_rate_seconds)
 );
 
---Descriptive statistics of value column
+--Statistical analysis of value column
 INSERT INTO heart_rate_seconds_descriptive
 VALUES
 (
@@ -334,7 +334,7 @@ VALUES
 );
 
 
---Create table for descriptive statistics values for hourly_calories table
+--Create table for statistical analysis values for hourly_calories table
 CREATE TABLE hourly_calories_descriptive
 (
     "column" VARCHAR,
@@ -349,7 +349,7 @@ CREATE TABLE hourly_calories_descriptive
     max VARCHAR
 );
 
---Descriptive statistics of id column
+--Statistical analysis of id column
 INSERT INTO hourly_calories_descriptive
 VALUES
 (
@@ -365,7 +365,7 @@ VALUES
     (SELECT MAX(id) FROM hourly_calories)
 );
 
---Descriptive statistics of date column
+--Statistical analysis of date column
 INSERT INTO hourly_calories_descriptive
 VALUES
 (
@@ -381,7 +381,7 @@ VALUES
     (SELECT MAX(date) FROM hourly_calories)
 );
 
---Descriptive statistics of time column
+--Statistical analysis of time column
 INSERT INTO hourly_calories_descriptive
 VALUES
 (
@@ -397,7 +397,7 @@ VALUES
     (SELECT MAX(time) FROM hourly_calories)
 );
 
---Descriptive statistics of calories column
+--Statistical analysis of calories column
 INSERT INTO hourly_calories_descriptive
 VALUES
 (
@@ -414,7 +414,7 @@ VALUES
 );
 
 
---Create table for descriptive statistics values for hourly_intensities table
+--Create table for statistical analysis values for hourly_intensities table
 CREATE TABLE hourly_intensities_descriptive
 (
     "column" VARCHAR,
@@ -429,7 +429,7 @@ CREATE TABLE hourly_intensities_descriptive
     max VARCHAR
 );
 
---Descriptive statistics of id column
+--Statistical analysis of id column
 INSERT INTO hourly_intensities_descriptive
 VALUES
 (
@@ -445,7 +445,7 @@ VALUES
     (SELECT MAX(id) FROM hourly_intensities)
 );
 
---Descriptive statistics of date column
+--Statistical analysis of date column
 INSERT INTO hourly_intensities_descriptive
 VALUES
 (
@@ -461,7 +461,7 @@ VALUES
     (SELECT MAX(date) FROM hourly_intensities)
 );
 
---Descriptive statistics of time column
+--Statistical analysis of time column
 INSERT INTO hourly_intensities_descriptive
 VALUES
 (
@@ -477,7 +477,7 @@ VALUES
     (SELECT MAX(time) FROM hourly_intensities)
 );
 
---Descriptive statistics of total_intensity column
+--Statistical analysis of total_intensity column
 INSERT INTO hourly_intensities_descriptive
 VALUES
 (
@@ -493,7 +493,7 @@ VALUES
     (SELECT MAX(total_intensity) FROM hourly_intensities)
 );
 
---Descriptive statistics of average_intensity column
+--Statistical analysis of average_intensity column
 INSERT INTO hourly_intensities_descriptive
 VALUES
 (
@@ -510,7 +510,7 @@ VALUES
 );
 
 
---Create table for descriptive statistics values for hourly_steps table
+--Create table for statistical analysis values for hourly_steps table
 CREATE TABLE hourly_steps_descriptive
 (
     "column" VARCHAR,
@@ -525,7 +525,7 @@ CREATE TABLE hourly_steps_descriptive
     max VARCHAR
 );
 
---Descriptive statistics of id column
+--Statistical analysis of id column
 INSERT INTO hourly_steps_descriptive
 VALUES
 (
@@ -541,7 +541,7 @@ VALUES
     (SELECT MAX(id) FROM hourly_steps)
 );
 
---Descriptive statistics of date column
+--Statistical analysis of date column
 INSERT INTO hourly_steps_descriptive
 VALUES
 (
@@ -557,7 +557,7 @@ VALUES
     (SELECT MAX(date) FROM hourly_steps)
 );
 
---Descriptive statistics of time column
+--Statistical analysis of time column
 INSERT INTO hourly_steps_descriptive
 VALUES
 (
@@ -573,7 +573,7 @@ VALUES
     (SELECT MAX(time) FROM hourly_steps)
 );
 
---Descriptive statistics of total_steps column
+--Statistical analysis of total_steps column
 INSERT INTO hourly_steps_descriptive
 VALUES
 (
@@ -590,7 +590,7 @@ VALUES
 );
 
 
---Create table for descriptive statistics values for minute_calories table
+--Create table for statistical analysis values for minute_calories table
 CREATE TABLE minute_calories_descriptive
 (
     "column" VARCHAR,
@@ -605,7 +605,7 @@ CREATE TABLE minute_calories_descriptive
     max VARCHAR
 );
 
---Descriptive statistics of id column
+--Statistical analysis of id column
 INSERT INTO minute_calories_descriptive
 VALUES
 (
@@ -621,7 +621,7 @@ VALUES
     (SELECT MAX(id) FROM minute_calories)
 );
 
---Descriptive statistics of date column
+--Statistical analysis of date column
 INSERT INTO minute_calories_descriptive
 VALUES
 (
@@ -637,7 +637,7 @@ VALUES
     (SELECT MAX(date) FROM minute_calories)
 );
 
---Descriptive statistics of time column
+--Statistical analysis of time column
 INSERT INTO minute_calories_descriptive
 VALUES
 (
@@ -653,7 +653,7 @@ VALUES
     (SELECT MAX(time) FROM minute_calories)
 );
 
---Descriptive statistics of calories column
+--Statistical analysis of calories column
 INSERT INTO minute_calories_descriptive
 VALUES
 (
@@ -670,7 +670,7 @@ VALUES
 );
 
 
---Create table for descriptive statistics values for minute_intensities table
+--Create table for statistical analysis values for minute_intensities table
 CREATE TABLE minute_intensities_descriptive
 (
     "column" VARCHAR,
@@ -685,7 +685,7 @@ CREATE TABLE minute_intensities_descriptive
     max VARCHAR
 );
 
---Descriptive statistics of id column
+--Statistical analysis of id column
 INSERT INTO minute_intensities_descriptive
 VALUES
 (
@@ -701,7 +701,7 @@ VALUES
     (SELECT MAX(id) FROM minute_intensities)
 );
 
---Descriptive statistics of date column
+--Statistical analysis of date column
 INSERT INTO minute_intensities_descriptive
 VALUES
 (
@@ -717,7 +717,7 @@ VALUES
     (SELECT MAX(date) FROM minute_intensities)
 );
 
---Descriptive statistics of time column
+--Statistical analysis of time column
 INSERT INTO minute_intensities_descriptive
 VALUES
 (
@@ -733,7 +733,7 @@ VALUES
     (SELECT MAX(time) FROM minute_intensities)
 );
 
---Descriptive statistics of intensity column
+--Statistical analysis of intensity column
 INSERT INTO minute_intensities_descriptive
 VALUES
 (
@@ -750,7 +750,7 @@ VALUES
 );
 
 
---Create table for descriptive statistics values for minute_mets table
+--Create table for statistical analysis values for minute_mets table
 CREATE TABLE minute_mets_descriptive
 (
     "column" VARCHAR,
@@ -765,7 +765,7 @@ CREATE TABLE minute_mets_descriptive
     max VARCHAR
 );
 
---Descriptive statistics of id column
+--Statistical analysis of id column
 INSERT INTO minute_mets_descriptive
 VALUES
 (
@@ -781,7 +781,7 @@ VALUES
     (SELECT MAX(id) FROM minute_mets)
 );
 
---Descriptive statistics of date column
+--Statistical analysis of date column
 INSERT INTO minute_mets_descriptive
 VALUES
 (
@@ -797,7 +797,7 @@ VALUES
     (SELECT MAX(date) FROM minute_mets)
 );
 
---Descriptive statistics of time column
+--Statistical analysis of time column
 INSERT INTO minute_mets_descriptive
 VALUES
 (
@@ -813,7 +813,7 @@ VALUES
     (SELECT MAX(time) FROM minute_mets)
 );
 
---Descriptive statistics of mets column
+--Statistical analysis of mets column
 INSERT INTO minute_mets_descriptive
 VALUES
 (
@@ -830,7 +830,7 @@ VALUES
 );
 
 
---Create table for descriptive statistics values for minute_sleep table
+--Create table for statistical analysis values for minute_sleep table
 CREATE TABLE minute_sleep_descriptive
 (
     "column" VARCHAR,
@@ -845,7 +845,7 @@ CREATE TABLE minute_sleep_descriptive
     max VARCHAR
 );
 
---Descriptive statistics of id column
+--Statistical analysis of id column
 INSERT INTO minute_sleep_descriptive
 VALUES
 (
@@ -861,7 +861,7 @@ VALUES
     (SELECT MAX(id) FROM minute_sleep)
 );
 
---Descriptive statistics of date column
+--Statistical analysis of date column
 INSERT INTO minute_sleep_descriptive
 VALUES
 (
@@ -877,7 +877,7 @@ VALUES
     (SELECT MAX(date) FROM minute_sleep)
 );
 
---Descriptive statistics of time column
+--Statistical analysis of time column
 INSERT INTO minute_sleep_descriptive
 VALUES
 (
@@ -893,7 +893,7 @@ VALUES
     (SELECT MAX(time) FROM minute_sleep)
 );
 
---Descriptive statistics of value column
+--Statistical analysis of value column
 INSERT INTO minute_sleep_descriptive
 VALUES
 (
@@ -909,7 +909,7 @@ VALUES
     (SELECT MAX(value) FROM minute_sleep)
 );
 
---Descriptive statistics of log_id column
+--Statistical analysis of log_id column
 INSERT INTO minute_sleep_descriptive
 VALUES
 (
@@ -926,7 +926,7 @@ VALUES
 );
 
 
---Create table for descriptive statistics values for minute_steps table
+--Create table for statistical analysis values for minute_steps table
 CREATE TABLE minute_steps_descriptive
 (
     "column" VARCHAR,
@@ -941,7 +941,7 @@ CREATE TABLE minute_steps_descriptive
     max VARCHAR
 );
 
---Descriptive statistics of id column
+--Statistical analysis of id column
 INSERT INTO minute_steps_descriptive
 VALUES
 (
@@ -957,7 +957,7 @@ VALUES
     (SELECT MAX(id) FROM minute_steps)
 );
 
---Descriptive statistics of date column
+--Statistical analysis of date column
 INSERT INTO minute_steps_descriptive
 VALUES
 (
@@ -973,7 +973,7 @@ VALUES
     (SELECT MAX(date) FROM minute_steps)
 );
 
---Descriptive statistics of time column
+--Statistical analysis of time column
 INSERT INTO minute_steps_descriptive
 VALUES
 (
@@ -989,7 +989,7 @@ VALUES
     (SELECT MAX(time) FROM minute_steps)
 );
 
---Descriptive statistics of steps column
+--Statistical analysis of steps column
 INSERT INTO minute_steps_descriptive
 VALUES
 (
@@ -1006,7 +1006,7 @@ VALUES
 );
 
 
---Create table for descriptive statistics values for weight_log_info table
+--Create table for statistical analysis values for weight_log_info table
 CREATE TABLE weight_log_info_descriptive
 (
     "column" VARCHAR,
@@ -1021,7 +1021,7 @@ CREATE TABLE weight_log_info_descriptive
     max VARCHAR
 );
 
---Descriptive statistics of id column
+--Statistical analysis of id column
 INSERT INTO weight_log_info_descriptive
 VALUES
 (
@@ -1037,7 +1037,7 @@ VALUES
     (SELECT MAX(id) FROM weight_log_info)
 );
 
---Descriptive statistics of date column
+--Statistical analysis of date column
 INSERT INTO weight_log_info_descriptive
 VALUES
 (
@@ -1053,7 +1053,7 @@ VALUES
     (SELECT MAX(date) FROM weight_log_info)
 );
 
---Descriptive statistics of time column
+--Statistical analysis of time column
 INSERT INTO weight_log_info_descriptive
 VALUES
 (
@@ -1069,7 +1069,7 @@ VALUES
     (SELECT MAX(time) FROM weight_log_info)
 );
 
---Descriptive statistics of weight column
+--Statistical analysis of weight column
 INSERT INTO weight_log_info_descriptive
 VALUES
 (
@@ -1085,7 +1085,7 @@ VALUES
     (SELECT ROUND(MAX(weight), 0) FROM weight_log_info)
 );
 
---Descriptive statistics of fat column
+--Statistical analysis of fat column
 INSERT INTO weight_log_info_descriptive
 VALUES
 (
@@ -1101,7 +1101,7 @@ VALUES
     (SELECT MAX(fat) FROM weight_log_info WHERE fat IS NOT NULL AND fat != 0)
 );
 
---Descriptive statistics of bmi column
+--Statistical analysis of bmi column
 INSERT INTO weight_log_info_descriptive
 VALUES
 (
@@ -1117,7 +1117,7 @@ VALUES
     (SELECT MAX(bmi) FROM weight_log_info)
 );
 
---Descriptive statistics of is_manual_report column
+--Statistical analysis of is_manual_report column
 INSERT INTO weight_log_info_descriptive
 VALUES
 (
@@ -1133,7 +1133,7 @@ VALUES
     'not applicable'
 );
 
---Descriptive statistics of log_id column
+--Statistical analysis of log_id column
 INSERT INTO weight_log_info_descriptive
 VALUES
 (
@@ -1150,7 +1150,7 @@ VALUES
 );
 
 
---Create table for descriptive statistics values for daily_calories table
+--Create table for statistical analysis values for daily_calories table
 CREATE TABLE daily_calories_descriptive
 (
     "column" VARCHAR,
@@ -1165,7 +1165,7 @@ CREATE TABLE daily_calories_descriptive
     max VARCHAR
 );
 
---Descriptive statistics of id column
+--Statistical analysis of id column
 INSERT INTO daily_calories_descriptive
 VALUES
 (
@@ -1181,7 +1181,7 @@ VALUES
     (SELECT MAX(id) FROM daily_calories)
 );
 
---Descriptive statistics of date column
+--Statistical analysis of date column
 INSERT INTO daily_calories_descriptive
 VALUES
 (
@@ -1197,7 +1197,7 @@ VALUES
     (SELECT MAX(date) FROM daily_calories)
 );
 
---Descriptive statistics of calories column
+--Statistical analysis of calories column
 INSERT INTO daily_calories_descriptive
 VALUES
 (
@@ -1214,7 +1214,7 @@ VALUES
 );
 
 
---Create table for descriptive statistics values for daily_intensities table
+--Create table for statistical analysis values for daily_intensities table
 CREATE TABLE daily_intensities_descriptive
 (
     "column" VARCHAR,
@@ -1229,7 +1229,7 @@ CREATE TABLE daily_intensities_descriptive
     max VARCHAR
 );
 
---Descriptive statistics of id column
+--Statistical analysis of id column
 INSERT INTO daily_intensities_descriptive
 VALUES
 (
@@ -1245,7 +1245,7 @@ VALUES
     (SELECT MAX(id) FROM daily_intensities)
 );
 
---Descriptive statistics of date column
+--Statistical analysis of date column
 INSERT INTO daily_intensities_descriptive
 VALUES
 (
@@ -1261,7 +1261,7 @@ VALUES
     (SELECT MAX(date) FROM daily_intensities)
 );
 
---Descriptive statistics of sedentary_minutes column
+--Statistical analysis of sedentary_minutes column
 INSERT INTO daily_intensities_descriptive
 VALUES
 (
@@ -1278,7 +1278,7 @@ VALUES
 );
 
 
---Descriptive statistics of lightly_active_minutes column
+--Statistical analysis of lightly_active_minutes column
 INSERT INTO daily_intensities_descriptive
 VALUES
 (
@@ -1294,7 +1294,7 @@ VALUES
     (SELECT MAX(lightly_active_minutes) FROM daily_intensities WHERE lightly_active_minutes IS NOT NULL AND lightly_active_minutes != 0)
 );
 
---Descriptive statistics of fairly_active_minutes column
+--Statistical analysis of fairly_active_minutes column
 INSERT INTO daily_intensities_descriptive
 VALUES
 (
@@ -1310,7 +1310,7 @@ VALUES
     (SELECT MAX(fairly_active_minutes) FROM daily_intensities WHERE fairly_active_minutes IS NOT NULL AND fairly_active_minutes != 0)
 );
 
---Descriptive statistics of very_active_minutes column
+--Statistical analysis of very_active_minutes column
 INSERT INTO daily_intensities_descriptive
 VALUES
 (
@@ -1326,7 +1326,7 @@ VALUES
     (SELECT MAX(very_active_minutes) FROM daily_intensities WHERE very_active_minutes IS NOT NULL AND very_active_minutes != 0)
 );
 
---Descriptive statistics of sedentary_active_distance column
+--Statistical analysis of sedentary_active_distance column
 INSERT INTO daily_intensities_descriptive
 VALUES
 (
@@ -1342,7 +1342,7 @@ VALUES
     (SELECT ROUND(MAX(sedentary_active_distance), 2) FROM daily_intensities WHERE sedentary_active_distance IS NOT NULL AND sedentary_active_distance != 0)
 );
 
---Descriptive statistics of light_active_distance column
+--Statistical analysis of light_active_distance column
 INSERT INTO daily_intensities_descriptive
 VALUES
 (
@@ -1358,7 +1358,7 @@ VALUES
     (SELECT ROUND(MAX(light_active_distance), 2) FROM daily_intensities WHERE light_active_distance IS NOT NULL AND light_active_distance != 0)
 );
 
---Descriptive statistics of moderately_active_distance column
+--Statistical analysis of moderately_active_distance column
 INSERT INTO daily_intensities_descriptive
 VALUES
 (
@@ -1374,7 +1374,7 @@ VALUES
     (SELECT ROUND(MAX(moderately_active_distance), 2) FROM daily_intensities WHERE moderately_active_distance IS NOT NULL AND moderately_active_distance != 0)
 );
 
---Descriptive statistics of very_active_distance column
+--Statistical analysis of very_active_distance column
 INSERT INTO daily_intensities_descriptive
 VALUES
 (
@@ -1391,7 +1391,7 @@ VALUES
 );
 
 
---Create table for descriptive statistics values for daily_steps table
+--Create table for statistical analysis values for daily_steps table
 CREATE TABLE daily_steps_descriptive
 (
     "column" VARCHAR,
@@ -1406,7 +1406,7 @@ CREATE TABLE daily_steps_descriptive
     max VARCHAR
 );
 
---Descriptive statistics of id column
+--Statistical analysis of id column
 INSERT INTO daily_steps_descriptive
 VALUES
 (
@@ -1422,7 +1422,7 @@ VALUES
     (SELECT MAX(id) FROM daily_steps)
 );
 
---Descriptive statistics of date column
+--Statistical analysis of date column
 INSERT INTO daily_steps_descriptive
 VALUES
 (
@@ -1438,7 +1438,7 @@ VALUES
     (SELECT MAX(date) FROM daily_steps)
 );
 
---Descriptive statistics of total_steps column
+--Statistical analysis of total_steps column
 INSERT INTO daily_steps_descriptive
 VALUES
 (
@@ -1455,7 +1455,7 @@ VALUES
 );
 
 
---Create table for descriptive statistics values for sleep_day table
+--Create table for statistical analysis values for sleep_day table
 CREATE TABLE sleep_day_descriptive
 (
     "column" VARCHAR,
@@ -1470,7 +1470,7 @@ CREATE TABLE sleep_day_descriptive
     max VARCHAR
 );
 
---Descriptive statistics of id column
+--Statistical analysis of id column
 INSERT INTO sleep_day_descriptive
 VALUES
 (
@@ -1486,7 +1486,7 @@ VALUES
     (SELECT MAX(id) FROM sleep_day)
 );
 
---Descriptive statistics of date column
+--Statistical analysis of date column
 INSERT INTO sleep_day_descriptive
 VALUES
 (
@@ -1502,7 +1502,7 @@ VALUES
     (SELECT MAX(date) FROM sleep_day)
 );
 
---Descriptive statistics of time column
+--Statistical analysis of time column
 INSERT INTO sleep_day_descriptive
 VALUES
 (
@@ -1518,7 +1518,7 @@ VALUES
     (SELECT MAX(time) FROM sleep_day)
 );
 
---Descriptive statistics of total_sleep_records column
+--Statistical analysis of total_sleep_records column
 INSERT INTO sleep_day_descriptive
 VALUES
 (
@@ -1534,7 +1534,7 @@ VALUES
     (SELECT MAX(total_sleep_records) FROM sleep_day)
 );
 
---Descriptive statistics of total_minutes_asleep column
+--Statistical analysis of total_minutes_asleep column
 INSERT INTO sleep_day_descriptive
 VALUES
 (
@@ -1550,7 +1550,7 @@ VALUES
     (SELECT MAX(total_minutes_asleep) FROM sleep_day WHERE total_minutes_asleep IS NOT NULL AND total_minutes_asleep != 0)
 );
 
---Descriptive statistics of total_time_in_bed column
+--Statistical analysis of total_time_in_bed column
 INSERT INTO sleep_day_descriptive
 VALUES
 (

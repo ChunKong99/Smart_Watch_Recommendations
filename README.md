@@ -36,8 +36,8 @@
 -   Dataset is stored by user "Mobius" and made publicly accessible. Data integrity is acceptable based on business objectives
 -   Dataset is in long format
 -   id, date, and time fields allow for 2 options of contextual analysis;
-*   Time-based analysis
-*       Agent-based analysis
+    -   Time-based analysis
+    -   Agent-based analysis
 
 
 # Process
@@ -150,12 +150,12 @@ SET cleaned_time = (EXTRACT(HOUR FROM TO_TIMESTAMP(activityhour, 'FMMM/FMDD/YYYY
 
 4)  Statistical analysis (univariate analysis)
 -   Numerical values are analysed to obtain
-  -     Quantile statistics; min, max, median, 25th percentile, and 75th percentile
-  -     Descriptive statistics; mean and standard deviation
-  -     Distribution histogram
+    -   Quantile statistics; min, max, median, 25th percentile, and 75th percentile
+    -   Descriptive statistics; mean and standard deviation
+    -   Distribution histogram
 -   Categorical values are analysed to obtain
-  -     Number of values
-  -     Number of distinct values
+    -   Number of values
+    -   Number of distinct values
 -   For complete SQL code, please refer "9_statistical_analysis.sql". Snippet of SQL code is as follows:
 ```
 --Create table for statistical analysis values for sleep_day table
@@ -207,40 +207,40 @@ VALUES
 ```
 ![statistical analysis](images/statistical_analysis.png)
 -   Further analysis on number of values or occurences for various categorical attributes
-  -     Plotting distinct counts of features vs date (day)
+    -   Plotting distinct counts of features vs date (day)
 ![top features used](images/top_features_used.png)
-  -     Calory and steps measurements are the top usage categories, followed by sleep measurement and weight measurement.
-  -     Product development recommendation; emphasize on developing more features related to calories and steps measurements. These features are being used most.
-  -     Marketing recommendation; do not emphasize on weight measurement feature as less than half of the users use this feature on a daily basis.
+    -   Calory and steps measurements are the top usage categories, followed by sleep measurement and weight measurement.
+    -   Product development recommendation; emphasize on developing more features related to calories and steps measurements. These features are being used most.
+    -   Marketing recommendation; do not emphasize on weight measurement feature as less than half of the users use this feature on a daily basis.
 -   Plotting categories of intensities vs date (day)
  ![breakdown of intensity categories](images/breakdown_of_intensity_categories.png)
-  -     Users spend most time being sedentary.
-  -     When active, users prefer to be lightly active as compared to fairly active or very active and by wide margin.
-  -     Product development recommendation; development of new features should be directed towards lightly active activities instead of fairly active and very active.
-  -     Marketing recommendation; do not emphasize on fairly active and lightly active activities when considering marketing campaigns as these are not what users are spending time on.
+    -   Users spend most time being sedentary.
+    -   When active, users prefer to be lightly active as compared to fairly active or very active and by wide margin.
+    -   Product development recommendation; development of new features should be directed towards lightly active activities instead of fairly active and very active.
+    -   Marketing recommendation; do not emphasize on fairly active and lightly active activities when considering marketing campaigns as these are not what users are spending time on.
 -   Further analysis on distributions
-  -     Plotting total_steps vs day of week
+    -   Plotting total_steps vs day of week
  ![total steps by day of week](images/total_steps_by_day_of_week.png)
-  -     Users are most active on Tuesdays, followed by Wednesdays and Thursdays.
-  -     Users are least active on Sundays, followed by Mondays and Fridays.
-  -     Product development recommendation; consider providing customized features for routines that suit work out plans on Tuesdays, Wednesdays, and Thursdays.
-  -     Marketing recommendation; since users are least active with their devices and workout on Sundays, Mondays, and Fridays, consider launching campaigns on these days to show them new features and services.
- -  Plotting number of steps vs hour of day
+        -   Users are most active on Tuesdays, followed by Wednesdays and Thursdays.
+        -   Users are least active on Sundays, followed by Mondays and Fridays.
+        -   Product development recommendation; consider providing customized features for routines that suit work out plans on Tuesdays, Wednesdays, and Thursdays.
+        -   Marketing recommendation; since users are least active with their devices and workout on Sundays, Mondays, and Fridays, consider launching campaigns on these days to show them new features and services.
+    -   Plotting number of steps vs hour of day
  ![number of steps by hour](images/number_of_steps_by_hour.png)
-  -     Users are on the move or are working out during the hours of 7pm, followed by 6pm and 12pm.
-  -     Users are least active during the window of 2am - 5am.
+        -   Users are on the move or are working out during the hours of 7pm, followed by 6pm and 12pm.
+        -   Users are least active during the window of 2am - 5am.
 -   Product development recommendation; users are on the move or are working out during the period of 6pm - 8pm, so new features which offers value when moving or working out during these hours are great. Note that movements during 12pm is due lunch hour.
-  -     Marketing recommendation;  since users are most active with their devices during the hours of 7pm, 6pm, and 12pm, consider launching campaigns during other hours to show them new features and services.
+    -   Marketing recommendation;  since users are most active with their devices during the hours of 7pm, 6pm, and 12pm, consider launching campaigns during other hours to show them new features and services.
 
 5)  Contextual Analysis
 -   Correlation analysis
 Using Tableau, Pearson Correlation Coefficient and p-value are as follows:
 ![correlation analysis](images/correlation_analysis.png)
-  -     Qualitative analysis
+    -   Qualitative analysis
 Plotting total_steps vs calories
 ![calories vs total_steps](images/calories_vs_total_steps.png)
 Amount of calories burnt directly correlates to amount of total steps taken.
-  -     Time-based analysis
+    -   Time-based analysis
 Plotting total_steps vs date (day)
 ![total steps through time](images/total_steps_through_time.png)
 The trend is up through time and this shows that users are either increasing their total steps through time or are increasing their use of the device for the feature of steps measurement.

@@ -51,7 +51,7 @@
 3)  Load 26 csv files into PostgreSQL
 
 ### Data cleansing
-1)  date and time values are converted from FMMM/FMDD/YYYY FMHH:FMMM:FMSS AM/PM format in [data cleansing and date conversion](code/4_data_cleansing_date_conversion.sql). Snippet of SQL code is as follows:
+1)  Date and time values are converted from FMMM/FMDD/YYYY FMHH:FMMM:FMSS AM/PM format in [data cleansing and date conversion](code/4_data_cleansing_date_conversion.sql). Snippet of SQL code is as follows:
 ```
 --Add new column and convert date and time format from FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM to YYYY/MM/DD and HH:MM:SS in hourly_calories_apr
 ALTER TABLE hourly_calories_apr ADD COLUMN cleaned_date date;
@@ -71,7 +71,7 @@ ALTER TABLE hourly_calories_apr RENAME COLUMN cleaned_date to date;
 ALTER TABLE hourly_calories_apr RENAME COLUMN cleaned_time to time;
 ```
 
-2)  date and time are seperated into 2 columns
+2)  Date and time are seperated into 2 columns
 
 3)  Columns renamed in [data cleansing drop column](code/5_data_cleansing_drop_column.sql). Snippet of SQL code is as follows:
 ```
@@ -150,12 +150,12 @@ SET cleaned_time = (EXTRACT(HOUR FROM TO_TIMESTAMP(activityhour, 'FMMM/FMDD/YYYY
 
 4)  Statistical analysis (univariate analysis)
 -   Numerical values are analysed to obtain
- -   Quantile statistics; min, max, median, 25th percentile, and 75th percentile
- -   Descriptive statistics; mean and standard deviation
- -   Distribution histogram
+    -   Quantile statistics; min, max, median, 25th percentile, and 75th percentile
+    -   Descriptive statistics; mean and standard deviation
+    -   Distribution histogram
 -   Categorical values are analysed to obtain
- -   Number of values
- -   Number of distinct values
+    -   Number of values
+    -   Number of distinct values
 -   For complete SQL code, please refer "9_statistical_analysis.sql". Snippet of SQL code is as follows:
 ```
 --Create table for statistical analysis values for sleep_day table
@@ -233,14 +233,14 @@ VALUES
  -      Marketing recommendation;  since users are most active with their devices during the hours of 7pm, 6pm, and 12pm, consider launching campaigns during other hours to show them new features and services.
 
 5)  Contextual Analysis
--   Correlation analysis
+Correlation analysis
 Using Tableau, Pearson Correlation Coefficient and p-value are as follows:
 ![correlation analysis](images/correlation_analysis.png)
- -      Qualitative analysis
+-   Qualitative analysis
 Plotting total_steps vs calories
 ![calories vs total_steps](images/calories_vs_total_steps.png)
 Amount of calories burnt directly correlates to amount of total steps taken.
- -      Time-based analysis
+-   Time-based analysis
 Plotting total_steps vs date (day)
 ![total steps through time](images/total_steps_through_time.png)
 The trend is up through time and this shows that users are either increasing their total steps through time or are increasing their use of the device for the feature of steps measurement.

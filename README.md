@@ -268,4 +268,4 @@ The trend is up through time and this shows that users are either increasing the
 -   Data from other smart devices and companies will help confirm conclusions and recommendations made.
 -   Additional dataset can reinforce these recommendations as limitation of this dataset produces margin of error of 12.2% when confidence level is 85%.
 
---end--
+--contact Chun Kong at 0111-2992771 for more data analysis work--

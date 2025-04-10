@@ -36,8 +36,8 @@
 -   Dataset is stored by user "Mobius" and made publicly accessible. Data integrity is acceptable based on business objectives
 -   Dataset is in long format
 -   id, date, and time fields allow for 2 options of contextual analysis;
-  -     Time-based analysis
-  -     Agent-based analysis
+*   Time-based analysis
+*       Agent-based analysis
 
 
 # Process

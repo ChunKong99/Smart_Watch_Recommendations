@@ -242,7 +242,7 @@ Plotting total_steps vs calories
 Amount of calories burnt directly correlates to amount of total steps taken.
 -   Time-based analysis
 Plotting total_steps vs date (day)
-<img src="images/total_steps_through_time.png" width="350">
+<img src="images/total_steps_through_time.png" width="600">
 The trend is up through time and this shows that users are either increasing their total steps through time or are increasing their use of the device for the feature of steps measurement.
 
 6)  Dashboard

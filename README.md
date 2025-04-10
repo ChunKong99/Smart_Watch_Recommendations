@@ -45,7 +45,7 @@
 2)  Technologies used:
 -   **SQL**: for data cleansing, querying, and analysis, providing critical insights
 -   **PostgreSQL**: database
--   **Tableau**: tool for graphical analysis and visualizations
+-   **Tableau**: tool for graphical analysis and visualisations
 -   **Visual Studio Code**: code editor to execute SQL queries
 -   **Git & Github**: version control and hosting my files for public access
 3)  Load 26 csv files into PostgreSQL
@@ -223,7 +223,7 @@ VALUES
  ![total steps by day of week](images/total_steps_by_day_of_week.png)
         -   Users are most active on Tuesdays, followed by Wednesdays and Thursdays.
         -   Users are least active on Sundays, followed by Mondays and Fridays.
-        -   Product development recommendation; consider providing customized features for routines that suit work out plans on Tuesdays, Wednesdays, and Thursdays.
+        -   Product development recommendation; consider providing customised features for routines that suit work out plans on Tuesdays, Wednesdays, and Thursdays.
         -   Marketing recommendation; since users are least active with their devices and workout on Sundays, Mondays, and Fridays, consider launching campaigns on these days to show them new features and services.
     -   Plotting number of steps vs hour of day
  ![number of steps by hour](images/number_of_steps_by_hour.png)
@@ -252,7 +252,7 @@ The trend is up through time and this shows that users are either increasing the
 1)  Product development recommendations:
 -   Emphasize on developing more features related to calories and steps measurements. These features are being used most.
 -   Development of new features should be directed towards lightly active activities instead of fairly active and very active.
--   Consider providing customized features for routines that suit work out plans on Tuesdays, Wednesdays, and Thursdays.
+-   Consider providing customised features for routines that suit work out plans on Tuesdays, Wednesdays, and Thursdays.
 -   Users are on the move or are working out during the period of 6pm - 8pm, so new features which offers value when moving or working out during these hours are great. Note that movements during 12pm is due lunch hour.
 -   Look into user feedback on logging of distance during activities (logged_activities_distance) and measurement of sedentary distance (sedentary_active_distance) to determine the direction of product development for these features.
 

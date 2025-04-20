@@ -43,15 +43,15 @@
 # Process
 1)  Total of 10.4mil rows in 26 tables in the dataset, hence, SQL is chosen to do data cleaning and analysis
 2)  Technologies used:
--   **SQL**: for data cleansing, querying, and analysis, providing critical insights
+-   **SQL**: for data cleaning, querying, and analysis, providing critical insights
 -   **PostgreSQL**: database
 -   **Tableau**: tool for graphical analysis and visualisations
 -   **Visual Studio Code**: code editor to execute SQL queries
 -   **Git & Github**: version control and hosting my files for public access
 3)  Load 26 csv files into PostgreSQL
 
-### Data cleansing
-1)  Date and time values are converted from FMMM/FMDD/YYYY FMHH:FMMM:FMSS AM/PM format in [data cleansing and date conversion](code/4_data_cleansing_date_conversion.sql). Snippet of SQL code is as follows:
+### Data cleaning
+1)  Date and time values are converted from FMMM/FMDD/YYYY FMHH:FMMM:FMSS AM/PM format in [data cleaning and date conversion](code/4_data_cleansing_date_conversion.sql). Snippet of SQL code is as follows:
 ```
 --Add new column and convert date and time format from FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM to YYYY/MM/DD and HH:MM:SS in hourly_calories_apr
 ALTER TABLE hourly_calories_apr ADD COLUMN cleaned_date date;
@@ -73,7 +73,7 @@ ALTER TABLE hourly_calories_apr RENAME COLUMN cleaned_time to time;
 
 2)  Date and time are seperated into 2 columns
 
-3)  Columns renamed in [data cleansing drop column](code/5_data_cleansing_drop_column.sql). Snippet of SQL code is as follows:
+3)  Columns renamed in [data cleaning drop column](code/5_data_cleansing_drop_column.sql). Snippet of SQL code is as follows:
 ```
 --Rename columns of weight_log_info_mar
 ALTER TABLE weight_log_info_mar RENAME COLUMN weightkg TO weight;
@@ -81,7 +81,7 @@ ALTER TABLE weight_log_info_mar RENAME COLUMN ismanualreport TO is_manual_report
 ALTER TABLE weight_log_info_mar RENAME COLUMN logid TO log_id;
 ```
 
-4)  Check lengths of columns in [data cleansing and check length](code/6_data_cleansing_check_length.sql). Snippet of SQL code is as follows:
+4)  Check lengths of columns in [data cleaning and check length](code/6_data_cleansing_check_length.sql). Snippet of SQL code is as follows:
 ```
 --Check length of column named id in hourly_calories_mar table
 SELECT
@@ -134,8 +134,8 @@ Each query aims at investigating specific aspects of the relationship between me
 -   Marketing recommendation; do not emphasize logging of distance during activities (logged_activities_distance) and measurement of sedentary distance (sedentary_active_distance) as users do not use these features.
 
 3)  Data types
--   date and time were reformatted and provided correct data types in [data cleansing and date conversion](code/4_data_cleansing_date_conversion.sql).
--   For complete SQL code, please refer [data cleansing and date conversion](code/4_data_cleansing_date_conversion.sql). Snippet of SQL code is as follows:
+-   date and time were reformatted and provided correct data types in [data cleaning and date conversion](code/4_data_cleansing_date_conversion.sql).
+-   For complete SQL code, please refer [data cleaning and date conversion](code/4_data_cleansing_date_conversion.sql). Snippet of SQL code is as follows:
 ```
 --Add new column and convert date and time format from FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM to YYYY/MM/DD and HH:MM:SS in hourly_calories_mar
 ALTER TABLE hourly_calories_mar ADD COLUMN cleaned_date date;

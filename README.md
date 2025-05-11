@@ -30,7 +30,7 @@
 
 # Preparations
 1)  Identify publicly available data: FitBit Fitness Tracker Data
-2)  Identify location of data: [Bellabeat Dataset] (www.kaggle.com/datasets/arashnic/fitbit)
+2)  Identify location of data: [Bellabeat Dataset](www.kaggle.com/datasets/arashnic/fitbit)
 3)  Integrity, bias, and credibility
 -   Licensed under CCO: Public Domain license
 -   Dataset is stored by user "Mobius" and made publicly accessible. Data integrity is acceptable based on business objectives
@@ -268,4 +268,4 @@ The trend is up through time and this shows that users are either increasing the
 -   Data from other smart devices and companies will help confirm conclusions and recommendations made.
 -   Additional dataset can reinforce these recommendations as limitation of this dataset produces margin of error of 12.2% when confidence level is 85%.
 
---contact Chun Kong at 0111-2992771 for more data analysis work--
+--contact Chun Kong at +60 111-2992771 or i_am_gary_lai@yahoo.com for more data analysis work--

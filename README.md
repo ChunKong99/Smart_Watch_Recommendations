@@ -1,6 +1,6 @@
 # Important Points
-1)  SQL code are too large to be displayed fully and are in 9 files within "code" folder.
-2)  Tableau dashboard is in .twb file within "visualisation" folder.
+1)  SQL code are too large to be displayed fully and are in 9 files within "code" folder
+2)  Tableau dashboard is in .twb file within "visualisation" folder
 
 
 # Identify Objectives
@@ -22,9 +22,9 @@
 1)	Urška Sršen, Co-founder of Bellabeat, Chief Creative Officer
 2)	Sando Mur, Co-founder of Bellabeat and key member of the Bellabeat executive team
 
-## Identify assumptions of using dataset from usage of 35 users
-1)	Total population of 100mil total users and 85% confidence level, margin of error is 12.2%
-2)  Measurements are accurate
+## Identify assumptions of using dataset
+1)	Total users in dataset is 35
+2)	Total population of 100mil total users and 85% confidence level, margin of error is 12.2%
 3)  No major technology update that makes smart watch usage obsolete
 
 
@@ -34,7 +34,6 @@
 3)  Integrity, bias, and credibility
 -   Licensed under CCO: Public Domain license
 -   Dataset is stored by user "Mobius" and made publicly accessible. Data integrity is acceptable based on business objectives
--   Dataset is in long format
 -   id, date, and time fields allow for 2 options of contextual analysis;
     -   Time-based analysis
     -   Agent-based analysis

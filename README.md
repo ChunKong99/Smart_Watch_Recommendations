@@ -20,19 +20,17 @@
 -   What are the hours where usage is highest?
 
 ### Stakeholders
-1)	Urška Sršen, Co-founder of Bellabeat, Chief Creative Officer
-2)	Sando Mur, Co-founder of Bellabeat and key member of the Bellabeat executive team
+1)	Product Development Manager
+2)	Marketing Manager
 
 # Process
-1)  Total of 10.4mil rows in 26 tables in the dataset, hence, SQL is chosen to do data cleaning and analysis
-2)  High granularity or high precision data are not useful and will not be included in analysis
-3)  Technologies used:
+1)  Technologies used:
 -   **SQL**: for data cleaning and querying (SQL code are within "code" folder)
 -   **PostgreSQL**: database
 -   **Tableau**: tool for graphical analysis and visualisations
 -   **Visual Studio Code**: code editor to execute SQL queries
 -   **Git & Github**: version control and hosting my files for public access
-3)  Load 26 csv files into PostgreSQL
+2)  Load 26 csv files into PostgreSQL
 
 # Recommendations
 1)  Product development recommendations:
@@ -58,8 +56,6 @@
 -   Do not emphasize logging of distance during activities (logged_activities_distance) and measurement of sedentary distance (sedentary_active_distance) as users do not use these features.
 
 3)  Closing thoughts
--   More insights into reasons of why users tend to use distance-related features less can be found by firstly obtaining feedback from customers.
--   Data from other smart devices and companies will help confirm conclusions and recommendations made.
--   Additional dataset can reinforce these recommendations as limitation of this dataset produces margin of error of 12.2% when confidence level is 85%.
+-   Feedback from customers can provide more insights into reasons of why distance-related features are less used.
 
 --contact Chun Kong at +60 111-2992771 or i_am_gary_lai@yahoo.com for more data analysis work--

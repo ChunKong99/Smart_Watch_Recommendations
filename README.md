@@ -1,12 +1,13 @@
-# Important Points
-1)  SQL code are too large to be displayed fully and are in 9 files within "code" folder
+# Reference Code
+1)  SQL code are within "code" folder
 2)  Tableau dashboard is in .twb file within "visualisation" folder
+3)  Comprehensive report with technical processes including data cleaning, transformations, and EDA are available in 
 
 
 # Identify Objectives
 ### Objectives:
-1) Product development recommendations based on trends found in publicly available smart device usage data
-2) Marketing recommendations based on trends found in publicly available smart device usage data
+1) Product development recommendations from smart device usage data
+2) Marketing recommendations from smart device usage data
 
 ### Breaking objectives down into smaller pieces
 1)  Product development recommendations:
@@ -18,103 +19,20 @@
 -   What are the usage trend?
 -   What are the hours where usage is highest?
 
-### Identify the stakeholders
+### Stakeholders
 1)	Urška Sršen, Co-founder of Bellabeat, Chief Creative Officer
 2)	Sando Mur, Co-founder of Bellabeat and key member of the Bellabeat executive team
 
-## Identify assumptions of using dataset
-1)	Total users in dataset is 35
-2)	Total population of 100mil total users and 85% confidence level, margin of error is 12.2%
-3)  No major technology update that makes smart watch usage obsolete
-
-
-# Preparations
-1)  Identify publicly available data: FitBit Fitness Tracker Data
-2)  Identify location of data: [Bellabeat Dataset](www.kaggle.com/datasets/arashnic/fitbit)
-3)  Integrity, bias, and credibility
--   Licensed under CCO: Public Domain license
--   Dataset is stored by user "Mobius" and made publicly accessible. Data integrity is acceptable based on business objectives
--   id, date, and time fields allow for 2 options of contextual analysis;
-    -   Time-based analysis
-    -   Agent-based analysis
-
-
 # Process
 1)  Total of 10.4mil rows in 26 tables in the dataset, hence, SQL is chosen to do data cleaning and analysis
-2)  Technologies used:
--   **SQL**: for data cleaning, querying, and analysis, providing critical insights
+2)  High granularity or high precision data are not useful and will not be included in analysis
+3)  Technologies used:
+-   **SQL**: for data cleaning and querying (SQL code are within "code" folder)
 -   **PostgreSQL**: database
 -   **Tableau**: tool for graphical analysis and visualisations
 -   **Visual Studio Code**: code editor to execute SQL queries
 -   **Git & Github**: version control and hosting my files for public access
 3)  Load 26 csv files into PostgreSQL
-
-### Data cleaning
-1)  Date and time values are converted from FMMM/FMDD/YYYY FMHH:FMMM:FMSS AM/PM format in [data cleaning and date conversion](code/4_data_cleansing_date_conversion.sql). Snippet of SQL code is as follows:
-```
---Add new column and convert date and time format from FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM to YYYY/MM/DD and HH:MM:SS in hourly_calories_apr
-ALTER TABLE hourly_calories_apr ADD COLUMN cleaned_date date;
-ALTER TABLE hourly_calories_apr ADD COLUMN cleaned_time time;
-
-UPDATE hourly_calories_apr
-SET cleaned_date = (EXTRACT(YEAR FROM TO_TIMESTAMP(activityhour, 'FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM')) || '-' || EXTRACT(MONTH FROM TO_TIMESTAMP(activityhour, 'FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM')) || '-' || EXTRACT(DAY FROM TO_TIMESTAMP(activityhour, 'FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM')))::date;
-
-UPDATE hourly_calories_apr
-SET cleaned_time = (EXTRACT(HOUR FROM TO_TIMESTAMP(activityhour, 'FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM')) || ':' || EXTRACT(MINUTE FROM TO_TIMESTAMP(activityhour, 'FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AMI')) || ':' || EXTRACT(SECONDS FROM TO_TIMESTAMP(activityhour, 'FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM')))::time;
-
---Remove unnecessary column in hourly_calories_apr
-ALTER TABLE hourly_calories_apr DROP COLUMN activityhour;
-
---Rename columns in hourly_calories_apr
-ALTER TABLE hourly_calories_apr RENAME COLUMN cleaned_date to date;
-ALTER TABLE hourly_calories_apr RENAME COLUMN cleaned_time to time;
-```
-
-2)  Date and time are seperated into 2 columns
-
-3)  Columns renamed in [data cleaning drop column](code/5_data_cleansing_drop_column.sql). Snippet of SQL code is as follows:
-```
---Rename columns of weight_log_info_mar
-ALTER TABLE weight_log_info_mar RENAME COLUMN weightkg TO weight;
-ALTER TABLE weight_log_info_mar RENAME COLUMN ismanualreport TO is_manual_report;
-ALTER TABLE weight_log_info_mar RENAME COLUMN logid TO log_id;
-```
-
-4)  Check lengths of columns in [data cleaning and check length](code/6_data_cleansing_check_length.sql). Snippet of SQL code is as follows:
-```
---Check length of column named id in hourly_calories_mar table
-SELECT
-    CASE WHEN COUNT(DISTINCT LENGTH(id::text)) > 1 THEN 'id_in_hourly_calories_mar'
-        ELSE NULL END AS irregular_value_hourly_calories_mar
-FROM hourly_calories_mar;
-```
-
-5)  Remove duplicates in [combine tables and remove duplicates](code/7_combine_tables_remove_duplicates.sql).
-
-6)  Combine tables in [combine tables and remove duplicates](code/7_combine_tables_remove_duplicates.sql). Snippet of SQL code is as follows:
-```
---Combine rows of hourly_calories_mar and hourly_calories_apr into hourly_calories table
-SELECT *
-INTO hourly_calories
-FROM
-(
-    SELECT *
-    FROM hourly_calories_mar
-
-    UNION
-
-    SELECT *
-    FROM hourly_calories_apr
-) AS hourly_calories;
-```
-
-7)  Remove nulls in [remove nulls](code/8_remove_nulls.sql). Snippet of SQL code is as follows:
-```
---Remove nulls from hourly_calories table
-DELETE FROM hourly_calories
-WHERE id IS NULL;
-```
-
 
 # Analyse
 ### Exploratory Data Analysis
@@ -126,86 +44,8 @@ Each query aims at investigating specific aspects of the relationship between me
 -   Which intensity of exercise are these users more interested in?
 -   What is the most popular duration of exercise?
 
-2)	Missing values
--   Percentage of missing values are observed to be very high on columns like logged_activities_distance and sedentary_active_distance which suggests lack of usage, providing insight into the amount of usage for these tracking features. Based on understanding of the business domain, the missing values are not included in statistical analysis in [statistical analysis](code/9_statistical_analysis.sql) and omitted from analysis due to lack of valuable insight.
--   Percentage of missing values of tracker_distance is very low and this explains that the logging of distance during activities (logged_activities_distance) and measurement of sedentary distance (sedentary_active_distance) are features not used or activated while the device continues to track all distances in the background.
--   Product development recommendation; look into user feedback on logging of distance during activities (logged_activities_distance) and measurement of sedentary distance (sedentary_active_distance) to determine the direction of product development for these features.
--   Marketing recommendation; do not emphasize logging of distance during activities (logged_activities_distance) and measurement of sedentary distance (sedentary_active_distance) as users do not use these features.
-
-3)  Data types
--   date and time were reformatted and provided correct data types in [data cleaning and date conversion](code/4_data_cleansing_date_conversion.sql).
--   For complete SQL code, please refer [data cleaning and date conversion](code/4_data_cleansing_date_conversion.sql). Snippet of SQL code is as follows:
-```
---Add new column and convert date and time format from FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM to YYYY/MM/DD and HH:MM:SS in hourly_calories_mar
-ALTER TABLE hourly_calories_mar ADD COLUMN cleaned_date date;
-ALTER TABLE hourly_calories_mar ADD COLUMN cleaned_time time;
-
-UPDATE hourly_calories_mar
-SET cleaned_date = (EXTRACT(YEAR FROM TO_TIMESTAMP(activityhour, 'FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM')) || '-' || EXTRACT(MONTH FROM TO_TIMESTAMP(activityhour, 'FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM')) || '-' || EXTRACT(DAY FROM TO_TIMESTAMP(activityhour, 'FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM')))::date;
-
-UPDATE hourly_calories_mar
-SET cleaned_time = (EXTRACT(HOUR FROM TO_TIMESTAMP(activityhour, 'FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM')) || ':' || EXTRACT(MINUTE FROM TO_TIMESTAMP(activityhour, 'FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM')) || ':' || EXTRACT(SECONDS FROM TO_TIMESTAMP(activityhour, 'FMMM/FMDD/YYYY FMHH12:FMMI:FMSS AM')))::time;
-```
-
-4)  Statistical analysis (univariate analysis)
--   Numerical values are analysed to obtain
-    -   Quantile statistics; min, max, median, 25th percentile, and 75th percentile
-    -   Descriptive statistics; mean and standard deviation
-    -   Distribution histogram
--   Categorical values are analysed to obtain
-    -   Number of values
-    -   Number of distinct values
--   For complete SQL code, please refer "9_statistical_analysis.sql". Snippet of SQL code is as follows:
-```
---Create table for statistical analysis values for sleep_day table
-CREATE TABLE sleep_day_descriptive
-(
-    "column" VARCHAR,
-    unique_values VARCHAR,
-    count VARCHAR,
-    mean VARCHAR,
-    standard_deviation VARCHAR,
-    min VARCHAR,
-    "25%" VARCHAR,
-    "50%" VARCHAR,
-    "75%" VARCHAR,
-    max VARCHAR
-);
-
---Statistical analysis of id column
-INSERT INTO sleep_day_descriptive
-VALUES
-(
-    'id',
-    (SELECT COUNT(DISTINCT id) FROM sleep_day),
-    'not applicable',
-    'not applicable',
-    'not applicable',
-    (SELECT MIN(id) FROM sleep_day),
-    'not applicable',
-    'not applicable',
-    'not applicable',
-    (SELECT MAX(id) FROM sleep_day)
-);
-
---Statistical analysis of total_time_in_bed column
-INSERT INTO sleep_day_descriptive
-VALUES
-(
-    'total_time_in_bed',
-    (SELECT COUNT(DISTINCT total_time_in_bed) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND total_time_in_bed != 0),
-    (SELECT COUNT(total_time_in_bed) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND total_time_in_bed != 0),
-    (SELECT ROUND(AVG(total_time_in_bed), 0) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND total_time_in_bed != 0),
-    (SELECT ROUND(STDDEV(total_time_in_bed), 0) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND total_time_in_bed != 0),
-    (SELECT MIN(total_time_in_bed) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND total_time_in_bed != 0),
-    (SELECT ROUND(PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY total_time_in_bed), 0) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND total_time_in_bed != 0),
-    (SELECT ROUND(PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY total_time_in_bed), 0) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND total_time_in_bed != 0),
-    (SELECT ROUND(PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY total_time_in_bed), 0) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND total_time_in_bed != 0),
-    (SELECT MAX(total_time_in_bed) FROM sleep_day WHERE total_time_in_bed IS NOT NULL AND total_time_in_bed != 0)
-);
-```
 ![statistical analysis](images/statistical_analysis.png)
--   Further analysis on number of values or occurences for various categorical attributes
+-   Analysis on number of values or occurences for various categorical attributes
     -   Plotting distinct counts of features vs date (day)
 ![top features used](images/top_features_used.png)
     -   Calory and steps measurements are the top usage categories, followed by sleep measurement and weight measurement.

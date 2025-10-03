@@ -1,7 +1,7 @@
 # Reference Code
 1)  SQL code are within "code" folder
 2)  Tableau dashboard is in .twb file within "visualisation" folder
-3)  Comprehensive report with technical processes including data cleaning, transformations, and EDA are available in 
+3)  Comprehensive report with technical processes including data cleaning, transformations, and EDA are available in [SQL_PostgreSQL_Tableau_Working_Repo](https://github.com/ChunKong99/SQL_PostgreSQL_Tableau_Working_Repo)
 
 
 # Identify Objectives
